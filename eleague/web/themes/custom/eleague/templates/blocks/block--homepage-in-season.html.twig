@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div class="in_season_homepage_block clearfix">
+    <div class="in-season-title-block">
+      <span class="in-season-title">{{ content.in_season_title }}</span>
+      <span class="in-season-subtitle">{{ content.in_season_subtitle }}</span>
+    </div>
+    <div class="left">
+      <div class="card">
+        <h1 class="title">{#{{ content.left_article_title }}#}The ELEAGUE Major: A New Champion Will Be Crowned</h1>
+        <div class="info">
+          <span class="author">{#{{ content.left_article_author }}#}Team ELEAGUE</span>
+          <span class="date">{#{{ content.left_article_date|date("F d, Y, g:iA T") }}#}January 25, 2017, 4:20PM EDT</span>
+        </div>
+        <div class="card-content">
+          <img src="/themes/custom/eleague/images/boston_major_champions_T2_article.jpg" alt="{{ content.left_article_img_alttext }}">
+          <p class="summary">{{ 'Over the past few weeks, the ELEAGUE Major: Boston has been host to some of the world’s best Counter Strike action of 2018.  As we move to the New Champions stage, we look to find which of the 8 remaining teams has what it takes to claim the title of Major Champion.'|t }}</p>
+        </div>
+        <a class="more" href="{#{{ content.left_article_link }}#}/news/eleague-major-a-new-champion-will-be-crowned">More</a>
+      </div>
+    </div>
+    <div class="right">
+      <div id="in_season_iframe" class="radar card">
+        <h1 class="title radar-card-title">{{ 'CS:GO Radar'|t }}</h1>
+        <div class="mr-space" id="mr-space_e-league-radar-2016-homepage-widget" data-space-id="turner-sports/e-league-radar-2016-homepage-widget">
+          <iframe src="http://turner-sports.massrel.io/e-league-radar-2016-homepage-widget/index.html#cfg=curl%3Dhttp%253A%252F%252Fwww.eleague.com%252F%26parent%3Dwww.eleague.com%26vph%3D726%26space-id%3Dturner-sports%252Fe-league-radar-2016-homepage-widget"></iframe>
+        </div>
+      </div>
+      <div class="card video-card">
+        <a class="in-season-img" href="/news/middle-of-the-pack"><img src="/themes/custom/eleague/images/T3_IN_FOCUS_361x241_middle_of_the_pack.jpg" alt=""><!--img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"--></a>
+        
+        <div class="card-content">
+          <h1 class="title">The ELEAGUE Major - The Middle Of The Pack</h1>
+          <p class="summary">{{ 'In any event, there are always teams who, while not the favorites, have a chance to win it all. At the Major, with such a diverse background of teams, the field is ripe with potential squads that fit this description.  In this edition of “In Focus”, Richard Lewis takes a look at teams with a puncher’s chance to make a big difference on the road to Boston.'|t }}</p>
+          {#<span class="author">{{ content.right_article_author }}</span>#}
+        </div>
+        <div class="info clearfix">
+          <span class="date">January 11, 2018</span>
+          <a href="/news/middle-of-the-pack"><span class="chevron">›</span>READ MORE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

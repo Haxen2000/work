@@ -1,0 +1,52 @@
+.block-hompage-clipboard {
+  background-color: $clipboard-container-bg-color;
+  border-top: 5px solid $clipboard-container-border-color;
+  color: $clipboard-container-color;
+  padding: $clipboard-container-padding;
+
+  .clipboard-title-block {
+    border-bottom: 1px solid $clipboard-block-title-border-color;
+    margin-bottom: 30px;
+
+    .clipboard-title {
+      color: $clipboard-heading-color;
+      font-size: $clipboard-heading-font-size;
+      line-height: $clipboard-heading-line-height;
+      padding-left: 20px;
+    }
+  }
+
+  .csgo-frame {
+    border-bottom: 3px solid $clipboard-frame-border-color;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+
+    // TODO: these styles come in from massrel / not loading locally
+    .mr-space {
+      -webkit-overflow-scrolling: touch;
+      border: 0;
+      height: 1180px;
+      margin: 0 auto;
+      min-height: 0;
+      overflow: hidden;
+      overflow-y: auto;
+      padding: 0;
+      width: 100%;
+
+      iframe {
+        background: transparent;
+        border: 0;
+        display: block;
+        float: none;
+        height: 100%;
+        margin: 0;
+        min-height: inherit;
+        outline: 0;
+        overflow: hidden;
+        padding: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+

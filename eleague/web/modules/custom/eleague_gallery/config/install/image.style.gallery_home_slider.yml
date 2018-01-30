@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: gallery_home_slider
+label: 'gallery home slider'
+effects:
+  3a1ad4d9-3f64-4f20-934b-bf23e97ef66c:
+    uuid: 3a1ad4d9-3f64-4f20-934b-bf23e97ef66c
+    id: image_resize
+    weight: 1
+    data:
+      width: 1020
+      height: 600

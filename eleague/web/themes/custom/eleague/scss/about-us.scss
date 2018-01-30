@@ -1,0 +1,80 @@
+.about-us {
+  color: $primary;
+
+  .header-image {
+    text-align: center;
+  }
+
+  .first-row {
+    background-color: $secondary;
+    width: 60%;
+    margin: auto;
+
+    img {
+      padding: 30px;
+    }
+
+    .col-4 {
+      width: 33%;
+      display: inline-block;
+    }
+
+    .col-8 {
+      width: 60%;
+      display: inline-block;
+      padding: 10px;
+    }
+  }
+
+  .second-row {
+    background-color: $secondary;
+    width: 60%;
+    margin: auto;
+
+    img {
+      padding: 30px;
+    }
+
+    .col-4 {
+      width: 33%;
+      display: inline-block;
+    }
+
+    .col-8 {
+      width: 60%;
+      display: inline-block;
+      padding: 10px;
+    }
+  }
+
+  .first-row > *, .second-row > *, .third-row > * {
+    vertical-align: middle;
+  }
+
+  .third-row {
+    background-color: $secondary;
+    width: 60%;
+    margin: auto;
+
+    .social-icons-au {
+
+      &.footer {
+        text-align: center;
+        border-top: 1px solid $grey-1;
+      }
+
+      img {
+        vertical-align: middle;
+      }
+
+      a {
+        margin: 15px;
+        display: inline-block;
+        width: 32px;
+      }
+
+    }
+
+  }
+
+}

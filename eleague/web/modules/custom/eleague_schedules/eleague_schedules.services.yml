@@ -1,0 +1,5 @@
+services:
+  eleague_schedules_getcollections:
+    class: Drupal\eleague_schedules\eleague_schedules_services
+    arguments: []
+

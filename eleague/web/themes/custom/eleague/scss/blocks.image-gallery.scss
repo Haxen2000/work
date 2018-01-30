@@ -1,0 +1,178 @@
+.photo-caption {
+  .gallery-location {
+    color: $gallery-location-color;
+    line-height: $gallery-location-line-height;
+    font-size: $gallery-location-font-size;
+  }
+
+  .gallery-title {
+    color: $gallery-title-color;
+    font-size: $gallery-title-font-size;
+    line-height: $gallery-title-line-height;
+    margin: $gallery-title-margin;
+  }
+}
+
+.slick.slick--optionset--gallery-upper-home {
+  .slick__arrow {
+
+    .slick-arrow {
+      height: 50px;
+      width: 50px;
+    }
+
+    .slick-prev {
+      left: 2%;
+    }
+
+    .slick-next {
+      right: 2%;
+    }
+  }
+}
+
+.slick--skin--boxed {
+  .slide__content {
+    border: none;
+    border-bottom: none;
+  }
+}
+
+.slick {
+  .slick__arrow {
+
+    .slick-prev {
+      left: 8%;
+    }
+
+    .slick-next {
+      right: 8%;
+    }
+  }
+
+  .slick-prev.bottom-home {
+    left: 0;
+  }
+
+  .slick-next.bottom-home {
+    right: 0;
+  }
+
+  .slick-slide {
+    
+
+    .photo-caption {
+      position: absolute;
+      right: 0;
+      bottom: -148px;
+      left: 0;
+      padding: 30px;
+      background: rgba(0, 0, 0, .8);
+      opacity: 0;
+      transition: opacity 1s, bottom 500ms;
+    }
+  }
+
+  .slick-list.draggable {
+    .slick-slide {
+      opacity: .5;
+    }
+  }
+
+  .slick-slide.slick-active {
+
+    &::before {
+      background:rgba(0,0,0,0);
+      transition: all 1s;
+    }
+
+    .photo-caption {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+}
+.slick--optionset--gallery-upper-home {
+  .slick__slider {
+    .slick-list {
+      margin: 0;
+    }
+  }
+}
+
+
+.slick--thumbnail.slick--skin--asnavfor {
+  .slick-list {
+    margin: 0 60px;
+  }
+
+  .slick__slide {
+    img {
+      border: none;
+      padding: 5px;
+      background-color: $primary;
+    }
+  }
+
+  .slick__slide.slick-current {
+    opacity: 1;
+    box-shadow: none;
+    transform: none;
+
+    &::before {
+      border: none;
+    }
+  }
+}
+
+.slick-next.full-width {
+  &::before {
+    content: url('http://cdn.eleague.com/img/right-arrow.png');
+  }
+}
+
+.slick-next.bottom-home {
+  &::before {
+    content: url('http://cdn.eleague.com/img/thin_arrow_right.png');
+  }
+}
+
+.slick-next.thin-arrow-right {
+  &::before {
+    content: url('http://cdn.eleague.com/img/thin_arrow_right.png');
+  }
+}
+
+.slick-prev.full-width {
+  &::before {
+    content: url('http://cdn.eleague.com/img/left-arrow.png');
+  }
+}
+
+.slick-prev.bottom-home {
+  &::before {
+    content: url('http://cdn.eleague.com/img/thin_arrow_left.png');
+  }
+}
+
+.slick-prev.thin-arrow-left {
+  &::before {
+    content: url('http://cdn.eleague.com/img/thin_arrow_left.png');
+  }
+}
+
+.slick-arrow {
+
+  height: 300px;
+  width: 100px;
+
+  @media screen and (max-width: 768px) {
+    height: 50px;
+    width: 50px;
+  }
+
+  &::before {
+    color: $secondary;
+  }
+}
+

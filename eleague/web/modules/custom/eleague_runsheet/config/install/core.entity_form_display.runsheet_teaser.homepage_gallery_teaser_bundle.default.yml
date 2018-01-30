@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - draco_runsheet.runsheet_teaser_bundle.homepage_gallery_teaser_bundle
+    - field.field.runsheet_teaser.homepage_gallery_teaser_bundle.field_homepage_gallery_block_id
+    - field.field.runsheet_teaser.homepage_gallery_teaser_bundle.field_homepage_gallery_view_name
+id: runsheet_teaser.homepage_gallery_teaser_bundle.default
+targetEntityType: runsheet_teaser
+bundle: homepage_gallery_teaser_bundle
+mode: default
+content:
+  field_homepage_gallery_block_id:
+    weight: -3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_homepage_gallery_view_name:
+    weight: -2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  title:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

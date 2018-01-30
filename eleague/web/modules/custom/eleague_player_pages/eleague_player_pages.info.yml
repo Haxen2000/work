@@ -1,0 +1,19 @@
+name: 'ELEAGUE Player Pages'
+description: 'Provides view for ELEAGUE player pages '
+type: module
+core: 8.x
+dependencies:
+  - datetime
+  - draco_testing_zeus
+  - field
+  - field_collection
+  - file
+  - image
+  - menu_ui
+  - node
+  - options
+  - path
+  - text
+  - user
+  - views
+version: ELEAGUE

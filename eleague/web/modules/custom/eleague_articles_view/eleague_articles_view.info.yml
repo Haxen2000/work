@@ -1,0 +1,12 @@
+name: 'ELEAGUE Articles View'
+description: 'Custom views for ELEAGUE articles'
+type: module
+core: 8.x
+dependencies:
+  - image
+  - node
+  - taxonomy
+  - text
+  - user
+  - views
+version: 8.x-1.2

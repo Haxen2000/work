@@ -1,0 +1,34 @@
+excluded:
+  - core.entity_form_display.node.article.default
+  - core.entity_form_display.node.player.default
+  - core.entity_form_display.node.team_player.default
+  - core.entity_form_display.user.user.default
+  - core.entity_form_display.node.gallery.default
+  - core.entity_form_display.node.gallery_demo.default
+  - core.entity_form_display.node.slideshow.default
+  - core.entity_view_display.user.user.compact
+  - core.entity_view_display.user.user.default
+  - core.entity_view_display.node.gallery.default
+  - core.entity_view_display.node.gallery.teaser
+  - field.field.node.gallery.field_game
+  - field.field.node.gallery.field_link_gallery_image
+  - field.field.node.gallery.field_player
+  - field.field.node.gallery.field_season
+  - field.field.node.gallery.field_team
+  - field.field.node.gallery.field_title_gallery_image
+  - field.field.node.gallery.field_date_gallery_image
+  - field.field.node.gallery.field_gallery_image
+  - field.field.node.gallery.field_location
+  - core.base_field_override.node.gallery.promote
+  - field.storage.node.field_date_gallery_image
+  - field.storage.node.field_gallery_image
+  - field.storage.node.field_link_gallery_image
+  - field.storage.node.field_location
+  - field.storage.node.field_title_gallery_image
+  - views.view.gallery_home
+  - views.view.gallery_page
+  - views.view.homepage_banner_slider
+  - views.view.image_gallery
+  - views.view.media
+  - views.view.slick_x
+required: true

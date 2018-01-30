@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - draco_runsheet.runsheet_teaser_bundle.homepage_gallery_teaser_bundle
+    - field.storage.runsheet_teaser.field_homepage_gallery_view_name
+id: runsheet_teaser.homepage_gallery_teaser_bundle.field_homepage_gallery_view_name
+field_name: field_homepage_gallery_view_name
+entity_type: runsheet_teaser
+bundle: homepage_gallery_teaser_bundle
+label: 'Homepage Gallery View Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

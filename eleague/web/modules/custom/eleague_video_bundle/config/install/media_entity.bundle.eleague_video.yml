@@ -1,0 +1,31 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - draco_zeus
+    - file
+    - remote_stream_wrapper
+id: eleague_video
+label: 'Eleague Video'
+description: 'Custom bundle for ELEAGUE/Zeus Video'
+type: draco_zeus_video
+queue_thumbnail_downloads: false
+new_revision: false
+type_configuration:
+  source_field: ''
+  jobs_field: ''
+  encodings_field: ''
+  thumbnail_field: ''
+  scrub_profile: draco_thumbnails
+  hermes_sidecar_field: ''
+  profiles:
+    draco_thumbnails:
+      sns_topic: ''
+    draco_video:
+      sns_topic: ''
+      sample_setting: foo
+  video_widgets:
+    external_url: {  }
+    local_upload:
+      uri_scheme: s3
+field_map: {  }

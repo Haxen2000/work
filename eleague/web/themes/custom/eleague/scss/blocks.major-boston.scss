@@ -1,0 +1,132 @@
+.major-custom
+{
+  padding: 20px;
+
+  .copy-container {
+    margin-bottom: 30px;
+  }
+
+  .details {
+
+    color: $secondary;
+    padding-left: 20px;
+
+    h2 {
+      display: inline-block;
+      padding: 0;
+    }
+
+    ul {
+      margin-bottom: 5px;
+    }
+  }
+
+  video {
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .right {
+    padding-top: 0;
+  }
+
+  a.btn.btn-red {
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+
+  hr {
+    border-color: $grey-3;
+    margin: 0;
+  }
+
+  .subtext {
+    color: $grey-3;
+  }
+
+  .custom-top h2, .custom-bottom h2 {
+    padding: 10px 0;
+  }
+  .custom-bottom h2 {
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid $grey-3;
+  }
+
+  .grey {
+    color: $grey-3;
+    display: inline-block;
+  }
+  .red {
+    color: $red-default;
+
+    a {
+      color: $red-default;
+      margin-left: 20px;
+      margin-bottom: 10px;
+      display: block;
+
+      &::before {
+        content: '›';
+      }
+    }
+  }
+
+  #major-btn {
+    background-color: $red-default;
+    border: 1px solid $secondary;
+    color: $secondary;
+    margin-top: 20px;
+    width: 60%;
+  }
+
+  #major-btn-bottom {
+    color: $secondary;
+    margin-top: 20px;
+  }
+
+  .custom-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a.link-white {
+        color: white;
+    }
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    .custom-top-left, .custom-top-right{
+      width: 100%;
+
+      hr {
+        border: 1px solid $grey-3;
+        margin: 20px 0;
+      }
+
+      @media screen and (min-width: 768px) {
+        width: 50%;
+      }
+    }
+  }
+  .custom-bottom-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+    .custom-bottom-left, .custom-bottom-middle, .custom-bottom-right {
+      width: 100%;
+
+      @media screen and (min-width: 768px) {
+        width: 30%;
+      }
+    }
+  }
+}

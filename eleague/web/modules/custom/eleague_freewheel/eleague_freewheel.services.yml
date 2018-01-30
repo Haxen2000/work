@@ -1,0 +1,10 @@
+services:
+  eleague.bviPublish:
+    class: Drupal\eleague_freewheel\BVIPublish
+    arguments: ['@entity.manager', '@entity.query', '@logger.factory', '@draco_freewheel.bvi.publisher']
+  eleague_freewheel.media_presave_subscriber:
+    class: Drupal\eleague_freewheel\EventSubscriber\MediaPresaveSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber }
+

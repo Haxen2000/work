@@ -1,0 +1,187 @@
+.block-homepage-in-season {
+  background-color: $in-season-container-bg-color;
+  border-top: 5px solid $in-season-container-border-color;
+  color: $in-season-container-color;
+  padding: $in-season-container-padding;
+
+  .in-season-title-block {
+    border-bottom: 1px solid $in-season-block-title-border-color;
+    margin-bottom: 30px;
+
+    .in-season-title {
+      color: $in-season-heading-color;
+      display: block;
+      font-size: $in-season-heading-font-size;
+      line-height: $in-season-heading-line-height;
+    }
+
+    .in-season-subtitle {
+      display: block;
+    }
+  }
+
+  .card {
+    background-color: $in-season-card-bg-color;
+    font-weight: 300;
+    margin-bottom: 30px;
+
+    &.video-card {
+      position: relative;
+
+      .play-icon {
+        position: absolute;
+        top: 89px;
+        z-index: 1;
+        left: 153px;
+
+      }
+      .in-season-img {
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+
+    h1 {
+      color: $in-season-card-heading-color;
+      font-size: $in-season-card-heading-font-size;
+      line-height: $in-season-card-heading-line-height;
+    }
+  }
+
+  .left {
+    @media screen and (min-width: 768px) {
+      width: 66%;
+      float: left;
+      padding-right: 15px;
+    }
+
+    .card {
+      height: $in-season-left-card-height-desktop;
+      overflow: hidden;
+      position: relative;
+
+      h1 {
+        margin: 0;
+        padding: $in-season-left-card-heading-padding;
+      }
+
+      p {
+        color: $in-season-left-card-paragraph-color;
+        font-size: $in-season-left-card-paragraph-font-size;
+        line-height: $in-season-left-card-paragraph-line-height;
+        margin: 0;
+        padding: $in-season-left-card-paragraph-padding;
+      }
+
+      .info {
+        border-top: 1px solid $in-season-block-title-border-color;
+        font-size: $in-season-left-card-info-font-size;
+        line-height: $in-season-left-card-info-line-height;
+        padding: 0 30px;
+        text-transform: uppercase;
+
+        .author {
+          font-weight: 100;
+        }
+
+        .date {
+          float: right;
+        }
+      }
+
+      .more {
+        bottom: 30px;
+        position: absolute;
+        right: 30px;
+      }
+
+      .card-content {
+        img {
+          width: 100%;
+        }
+      }
+
+    }
+  }
+
+  .right {
+      @media screen and (min-width: 768px) {
+        width: 34%;
+        float: left;
+        padding-left: 15px;
+
+      }
+    .card {
+      h1 {
+        font-size: $in-season-right-card-heading-default-font-size;
+        line-height: $in-season-right-card-heading-default-line-height;
+      }
+
+      .card-content {
+        padding: 20px 20px 0 20px;
+
+        .title {
+          font-size: $in-season-right-card-heading-font-size;
+          line-height: $in-season-right-card-heading-line-height;
+          margin: 0;
+        }
+
+        .summary {
+          font-size: $in-season-right-card-summary-font-size;
+          line-height: $in-season-right-card-summary-line-height;
+          margin: 0;
+          padding: 10px 0;
+        }
+      }
+
+      .info {
+        padding: 17px 20px 20px 20px;
+
+        .date {
+          bottom: 20px;
+          font-size: 12px;
+          height: 13px;
+          left: 20px;
+          line-height: 12px;
+          text-transform: uppercase;
+        }
+
+        a {
+          float: right;
+          font-size: $in-season-right-card-info-link-font-size;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+      }
+
+      &.radar {
+        height: auto;
+
+        .radar-card-title {
+          border-bottom: 1px solid $in-season-right-card-radar-title-border-color;
+          font-size: $in-season-right-card-radar-title-font-size;
+          line-height: $in-season-right-card-radar-title-line-height;
+          margin-bottom: 20px;
+          margin-top: 0;
+          padding: $in-season-right-card-radar-title-padding;
+        }
+
+        // TODO: these styles come in from massrel / not loading locally
+        iframe {
+          -webkit-overflow-scrolling: touch;
+          border: 0;
+          display: block;
+          height: 397px;
+          margin: 0 auto;
+          min-height: 0;
+          overflow: hidden;
+          overflow-y: auto;
+          padding: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

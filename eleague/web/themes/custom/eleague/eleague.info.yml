@@ -1,0 +1,16 @@
+name: eleague
+type: theme
+description: Custome ELEAGUE theme
+package: eleague
+core: 8.x
+libraries:
+  - eleague/global-css
+ 
+base theme: classy
+#Using Classy as a base theme https://www.drupal.org/theme-guide/8/classy
+
+regions:
+  announcement_bar: announcement bar
+  header: header
+  content: content
+  footer: footer

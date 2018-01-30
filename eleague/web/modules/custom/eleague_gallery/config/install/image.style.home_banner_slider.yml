@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: home_banner_slider
+label: 'Home Banner Slider'
+effects:
+  3dfbb626-56be-4e11-8bf5-1b5c018addca:
+    uuid: 3dfbb626-56be-4e11-8bf5-1b5c018addca
+    id: image_resize
+    weight: 1
+    data:
+      width: 1500
+      height: 600

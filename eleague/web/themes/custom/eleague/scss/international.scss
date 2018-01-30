@@ -1,0 +1,53 @@
+.international-background {
+  background-color: $secondary;
+  color: $primary;
+  padding: 40px;
+
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    font-size: .6em;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  .international {
+    border: 1px solid $primary;
+    background-color: $secondary;
+    width: 100%;
+
+    td, th {
+      padding: 10px 10px 10px 20px;
+
+      @media screen and (max-width: 768px) {
+        padding: 5px 5px 5px 10px;
+      }
+    }
+
+    img {
+      width: 105px;
+      vertical-align: middle;
+    }
+
+    .border_right {
+      border-right: 1px solid $primary;
+    }
+
+    .alt {
+      background-color: $grey-1;
+    }
+
+    .header {
+      background-color: $grey-3;
+      color: $secondary;
+      text-align: left;
+      text-transform: uppercase;
+
+      .market, .network, .urls {
+        width: 20%;
+      }
+    }
+  }
+}
+

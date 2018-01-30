@@ -1,0 +1,7 @@
+name: eleague_freewheel
+type: module
+description: Custom implementation of Draco FreeWheel
+core: 8.x
+package: ELEAGUE
+dependencies:
+  - draco_freewheel

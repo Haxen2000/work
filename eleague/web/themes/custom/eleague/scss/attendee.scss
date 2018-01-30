@@ -1,0 +1,65 @@
+.attendee {
+  padding-bottom: 20px;
+  background: $grey-1;
+  margin-left: -20px;
+  padding-left: 35px;
+  margin-right: -20px;
+  padding-right: 35px;
+
+  .cd-accordion-menu {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+
+    ul {
+      display: none;
+      padding: 0;
+    }
+
+    li {
+      user-select: none;
+      list-style: none;
+
+      p {
+        padding: 30px;
+        background: $secondary;
+        color: $primary;
+      }
+    }
+
+    input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+
+      &:checked + label + ul {
+        display: block;
+      }
+
+      &:checked + label {
+        &::after {
+          background-position: -32px 0;
+        }
+      }
+    }
+
+    label, a {
+      position: relative;
+      display: block;
+      padding: 18px 0;
+      background: $grey-1;
+      color: $primary;
+    }
+
+    label {
+      font-size: $heading-4-mobile;
+
+      @media screen and (min-width: 768px) {
+        font-size: $heading-3-desktop;
+      }
+    }
+
+    a {
+      background: transparent;
+    }
+  }
+}

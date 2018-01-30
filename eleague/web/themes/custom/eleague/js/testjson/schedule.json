@@ -1,0 +1,44 @@
+{
+  "tournamentId": "749",
+  "md5Sum": "afa2691cc1a8fbd23afae92cc76e7be5",
+  "matches": [
+    {
+      "matchDate": "Fri Oct 13 2017",
+      "maps": [
+        {
+          "location": "eleague_stage_2",
+          "map": "de_cache"
+        },
+        {
+          "location": "eleague_stage_2",
+          "map": "de_overpass"
+        },
+        {
+          "location": "eleague_stage_2",
+          "map": "de_inferno"
+        }
+      ],
+      "teams": [
+        {
+          "teamName": "FaZe Clan",
+          "score": "1",
+          "leader": "karrigan",
+          "teamId": "1333119"
+        },
+        {
+          "teamName": "Astralis",
+          "score": "0",
+          "leader": "gla1ve",
+          "teamId": "1333129"
+        }
+      ],
+      "location": "eleague_stage_2",
+      "matchTime": "22:00:00",
+      "state": "live",
+      "bestOf": "3",
+      "map": "de_cache",
+      "matchId": "963399"
+    }
+  ],
+  "timestamp": "2017-10-19T15:56:59Z"
+}

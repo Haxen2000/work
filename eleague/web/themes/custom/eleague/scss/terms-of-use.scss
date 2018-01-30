@@ -1,0 +1,23 @@
+.node--type-article {
+  .article-content-wrapper {
+    .article-content {
+
+      &.tou {
+        background-color: $grey-4;
+        background-image: none;
+      }
+
+      .article-body {
+        .terms-of-use {
+          h2 {
+            padding: 50px 0 10px;
+            border-bottom: 1px solid;
+            line-height: 36px;
+          }
+        }
+      }
+
+    }
+  }
+}
+

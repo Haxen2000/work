@@ -1,0 +1,7 @@
+name: ELEAGUE Schedules
+type: module
+description: Custom content for ELEAGUE schedules
+core: 8.x
+package: ELEAGUE
+dependencies:
+  - field_collection

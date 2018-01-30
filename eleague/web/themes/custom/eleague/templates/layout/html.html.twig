@@ -1,0 +1,37 @@
+{%
+set body_classes = [
+logged_in ? 'user-logged-in',
+not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+node_type ? 'page-node-type-' ~ node_type|clean_class,
+db_offline ? 'db-offline',
+'site-wrapper'
+]
+%}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+<head>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+  <script type="text/javascript" src="https://use.typekit.com/lod7urk.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <head-placeholder token="{{ placeholder_token|raw }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <js-placeholder token="{{ placeholder_token|raw }}">
+      <css-placeholder token="{{ placeholder_token|raw }}">
+        </head>
+<body{{ attributes.addClass(body_classes) }} ontouchstart="">
+<div class="site-inner-wrapper">
+<nav id="nav-container" class="nav-container">
+    {{ page.announcement_bar }}
+    {{ page.header }}
+</nav>
+<a href="#main-content" class="visually-hidden focusable skip-link">
+    {{ 'Skip to main content'|t }}
+</a>
+{{ page_top }}
+{{ page }}
+{{ page_bottom }}
+</div>
+<js-bottom-placeholder token="{{ placeholder_token|raw }}">
+</body>
+</html>

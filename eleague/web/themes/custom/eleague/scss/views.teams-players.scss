@@ -1,0 +1,218 @@
+.view-teams-players {
+  margin-top: -5px;
+  font-size: em(13);
+
+  .views-row {
+    padding: 14px;
+    background-color: #0D0D0D; // Custom to match img bg
+
+    .views-field-field-cs-go-player-id {
+      display: none;
+    }
+
+    .team-player {
+      border-bottom: 1px solid $team-player-border-bottom-color;
+      height: 330px;
+      position: relative;
+
+      @media screen and (min-width: 768px){
+        height: 250px;
+      }
+
+      .flex-row {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .container {
+        @media screen and (min-width: 768px){
+          position: absolute;
+          width: 30%;
+        }
+
+        &.container-body {
+          width: calc(50% - 17px);
+          display: inline-block;
+          vertical-align: middle;
+
+          @media screen and (min-width: 768px) {
+            width: calc(75% - 34px);
+          }
+        }
+
+        h2.value {
+          text-transform: none;
+          font-size: em(30);
+          letter-spacing: 0;
+          font-weight: 400;
+          line-height: 40px;
+          padding: 0;
+
+          @media screen and (min-width: 768px) {
+            font-size: 34px;
+            margin-bottom: 17px;
+          }
+        }
+
+        h3.value {
+          font-size: 16px;
+          letter-spacing: 0;
+          font-weight: 400;
+          text-transform: none;
+          color: $team-player-heading-3-color;
+          margin: 0;
+          line-height: 1;
+
+          @media screen and (min-width: 768px) {
+            font-size: 19px;
+            letter-spacing: 1px;
+          }
+        }
+        h4 {
+          color: $team-player-heading-4-color;
+          font-size: 12px;
+          letter-spacing: 0;
+          font-weight: 400;
+          text-transform: none;
+          margin: 0;
+          line-height: 16px;
+
+          @media screen and (min-width: 768px) {
+            font-size: 13px;
+          }
+        }
+
+        &-photo {
+          position: relative;
+          display: inline-block;
+          width: 50%;
+          vertical-align: middle;
+
+          @media screen and (min-width: 768px){
+            padding: 17px;
+            width: calc(25% - 34px);
+          }
+        }
+
+        &.nick {
+          top: 0;
+          left: 0;
+          width: 100%;
+
+          @media screen and (min-width: 768px) {
+            width: auto;
+          }
+        }
+        &.name {
+          top: 70px;
+          left: 0;
+          margin-bottom: 20px;
+        }
+
+        &.social {
+          left: 17px;
+          top: 15px;
+          max-width: 180px;
+
+          @media screen and (min-width: 768px) {
+            left: 33%;
+            top: 0;
+            width: auto;
+          }
+
+          .social-icons {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            @media screen and (min-width: 768px) {
+              justify-content: center;
+            }
+
+            a {
+              margin: 5px;
+
+              @media screen and (min-width: 768px) {
+                margin: 15px;
+              }
+            }
+          }
+        }
+
+        &.nation-age {
+          margin-bottom: 20px;
+
+          @media screen and (min-width: 768px) {
+            top: 70px;
+            left: 33%;
+            max-width: 180px;
+          }
+
+          .nationality {
+            width: 75%;
+          }
+        }
+
+        &.player-stat-label {
+          margin-bottom: 20px;
+
+          @media screen and (min-width: 768px) {
+            left: 67%;
+          }
+
+          h3.player-stat {
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            line-height: 1em;
+
+            @media screen and (min-width: 768px) {
+              font-size: 17px;
+              letter-spacing: 0;
+            }
+
+            @media screen and (min-width: 992px) {
+              font-size: 19px;
+              letter-spacing: 0.05em;
+            }
+          }
+        }
+
+        &.player-stat-values {
+          .flex-row {
+            height: 16px;
+            margin-bottom: 3px;
+          }
+
+          .totals {
+            font-size: em(12);
+            font-style: italic;
+            text-align: right;
+            font-weight: bold;
+          }
+
+          @media screen and (min-width: 768px) {
+            top: 70px;
+            left: 67%;
+
+            .flex-row {
+              height: auto;
+            }
+          }
+        }
+
+        &.complete-stats {
+          top: 180px;
+          margin-bottom: 20px;
+
+          @media screen and (min-width: 768px) {
+            left: 67%;
+          }
+
+          a {
+            color: #2069b4;
+          }
+        }
+      }
+    }
+  }
+}

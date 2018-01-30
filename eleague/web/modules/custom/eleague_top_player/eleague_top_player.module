@@ -1,0 +1,115 @@
+<?php
+
+/**
+ * @file
+ * Contains eleague_top_player.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity;
+
+/**
+ * Implements hook_help().
+ */
+function eleague_top_player_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the eleague_top_player module.
+    case 'help.page.eleague_top_player':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom Top player for ELEAGUE') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function eleague_top_player_theme_suggestions_draco_video_alter(&$suggestions, $vars, $hook) {
+
+   $suggestions[] = 'eleague_top_player';
+
+
+}
+
+/**
+ * Implements hook_theme().
+ */
+function eleague_top_player_theme() {
+
+
+    return [
+    'eleague_top_player' => [
+      'variables' => [
+        'files' => [],
+        'width' => NULL,
+        'height' => NULL,
+        'attributes' => [],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function eleague_top_player_theme_registry_alter(&$registry){
+
+        $registry['draco_video']['theme path'] = "modules/custom/eleague_top_player";
+        $registry['draco_video']['template'] = 'eleague-top-player';
+        $registry['draco_video']['path'] = 'modules/custom/eleague_top_player/templates';
+
+}
+
+/**
+ * Implements template_preprocess().
+ */
+function template_preprocess_eleague_top_player(&$variables){
+
+    $current_path = \Drupal::service('path.current')->getPath();
+
+    $fid = \Drupal\file\Entity\File::load($variables['files'][0]->fid->value);
+    //($variables);
+
+  $found_mobile = false;
+  $found_desktop = false;
+
+  //find the desktop/mobile versions of the video
+  foreach($variables['files'] as $file) {
+
+    if(strpos($file->get('uri')->getValue()[0]['value'], '640x360') && $found_mobile == false) {
+      $variables['#attached']['drupalSettings']['mobile_url'] = $file->get('uri')->getValue()[0]['value'];
+      $found_mobile = true;
+
+    }
+
+    if(strpos($file->get('uri')->getValue()[0]['value'], '1280x720') && $found_desktop == false) {
+      $variables['#attached']['drupalSettings']['desktop_url'] = $file->get('uri')->getValue()[0]['value'];
+      $found_desktop = true;
+
+    }
+
+    if($found_desktop && $found_mobile) {
+        break;
+    }
+
+  }
+
+    //give the variables to drupal behaviors
+    $variables['#attached']['drupalSettings']['div_id'] = 'playerarea';
+
+    //then to the player
+    $player['#attached']['drupalSettings']['div_id'] = 'playerarea';
+    $variables['player'] = $player;
+
+    //grab all the configs from TopPlayerAdmin
+    //these are set @ (url:admin/structure/player_config/eleague_top_player_config/edit)
+    $player_config = \Drupal\draco_top_player\Entity\PlayerConfig::load('eleague_top_player_config');
+    $variables['#attached']['drupalSettings']['player_config'] = $player_config->getAllConfig();
+    $variables['#attached']['drupalSettings']['player_config']['ads']['section'] = 'e-league_site_players_vod_html5';
+    //the media id is passed in the theme template as it is not available here.
+    return $variables;
+}

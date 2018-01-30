@@ -1,0 +1,63 @@
+.view-teams {
+  background-color: #181818;
+
+  &.csgo-teams {
+    background-color: $grey-6;
+  }
+
+  &.csgo-teams-season2 {
+    background-color: $primary;
+  }
+
+  .views-row {
+    padding: 0 20px;
+
+    a {
+      color: $secondary;
+    }
+
+    .team_list {
+      border-bottom: 1px solid $grey-4;
+      margin: 10px 0;
+      position: relative;
+
+      @media screen and (min-width: 768px) {
+        margin: 10px 50px;
+      }
+    }
+
+    .team_center {
+      margin: 0 50px;
+    }
+
+    .titles_won {
+      padding: 16px 0;
+    }
+
+    .major_titles_ribbon {
+      float: left;
+      padding-right: 5px;
+    }
+
+    .team_copy {
+      margin-left: 60px;
+    }
+
+    .team_title {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: normal;
+    }
+    .social-icons {
+      float: left;
+      a {
+        margin: 0 5px 5px 5px;
+
+      }
+      img {
+        height: 32px;
+        width: 32px;
+      }
+    }
+  }
+}

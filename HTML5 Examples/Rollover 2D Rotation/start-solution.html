@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Untitled Document</title>
+		<link type="text/css" rel="stylesheet" href="./style.css" />
+		<script>
+			onload = function ( ) {
+				var h2s = document.getElementsByTagName ( 'h2' );
+				var div = document.getElementsByTagName ( 'div' ) [ 0 ];
+				div.onmouseover = function ( ) {
+					var n = h2s.length;
+					while ( n-- ) {
+						var sty = h2s [ n ].style;
+						var stp = ( n / 4 * 30 ) - 15;
+						sty.cssText = '';
+						sty.webkitTransform += 'rotate(' + stp + 'deg) ';
+						sty.webkitTransform += 'translateY(' + Math.max ( -5, Math.abs ( stp * 2 ) - 15 ) + 'px) ';
+						sty.MozTransform += 'rotate(' + stp + 'deg) ';
+						sty.MozTransform += 'translateY(' + Math.max ( -5, Math.abs ( stp * 2 ) - 15 ) + 'px) ';
+						sty.transform += 'rotate(' + stp + 'deg) ';
+						sty.transform += 'translateY(' + Math.max ( -5, Math.abs ( stp * 2 ) - 15 ) + 'px) ';
+					}
+				}
+				div.onmouseout = function ( ) {
+					var n = h2s.length;
+					while ( n-- ) h2s [ n ].style.cssText = '';
+				}
+			}
+		</script>
+        <style type="text/css">
+			h2{
+				-webkit-border-radius: 5px;
+				-webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+				-moz-border-radius: 5px;
+				-moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+				border-radius: 5px;
+				box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+			}
+			h2:hover{
+				z-index:1;
+				-webkit-transition:-webkit-transform 300ms;
+				-webkit-transform:scale(1.2) !important;
+				-moz-transition:-webkit-transform 300ms;
+				-moz-transform:scale(1.2) !important;
+				transition:-webkit-transform 300ms;
+				transform:scale(1.2) !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h2></h2>
+			<h2></h2>
+			<h2></h2>
+			<h2></h2>
+			<h2></h2>
+		</div>
+		<div>the above cards have five-pixel rounded corners, and a five-pixel fifty-percent-transparent black shadow.  rolling over each card will cause it to grow by twenty percent.</div>
+	</body>
+</html>

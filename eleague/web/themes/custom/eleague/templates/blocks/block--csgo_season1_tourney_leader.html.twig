@@ -1,0 +1,113 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+{{ attach_library('eleague/performer-leaders-season1') }}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div class="tournament_leader">
+    <div class="performer-leader">
+      <div class="tourney-leader">
+        <div class="title">
+          <span>Season One Tournament Leader</span>
+        </div>
+        <div class="tl-profile-container">
+          <div class="tl-headshot">
+            <img id="tl-player-pic" src="
+http://i.cdn.turner.com/nba/nba/.element/img/2.0/sect/pulse/eleague/188x188/astralis/schedule_dev1ce_astralis_@2.png" alt='device headshot'>
+          </div>
+          <div class="tl-profile">
+            <span class="tl-gamertag">dev1ce</span>
+            <div class="tl-team">
+              <div class="tl-team-icon">
+                <img id="tl-tm-icon-link" src="http://cdn.eleague.com/csgo/images/astralis.png?size=128" alt=' logo'>
+              </div>
+              <span class="tl-team-name">Astralis</span>
+            </div>
+            <div class="tl-stats">
+              <div class="tl-stats-box">
+                <span class="tl-stats-title">Maps</span>
+                <span class="tl-stats-number">13</span>
+              </div>
+              <div class="tl-stats-box mid-left">
+                <span class="tl-stats-title">K-D Diff</span>
+                <span class="tl-stats-number">
+                <span class="pos-neg">+</span>85
+              </span>
+              </div>
+              <div class="tl-stats-box mid-right">
+                <span class="tl-stats-title">K/D</span>
+                <span class="tl-stats-number">1.40</span>
+              </div>
+              <div class="tl-stats-box">
+                <span class="tl-stats-title">Rating</span>
+                <span class="tl-stats-number">1.30</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-write-up">
+          <p>The star player of Astralis, Danish player dev1ce is well-known for both his aggressive play as well as his ability to quickly adapt to various situations. At ELEAGUE, he exhibited daring plays with the AWP in his opening games against NRG, first snagging a critical ace on Cache, then clinching the win on Train after a series of round losses. During the Group C finals, dev1ce would carry his team to victory, overtaking CLG on Overpass with a bold final rush that granted Astralis a spot in the playoffs. Despite skilled performances, dev1ce and his team did not emerge victorious in the quarterfinal match against mousesports.</p>
+        </div>
+      </div>
+      <div class="top-performers">
+    <div class="title tp-title flex row">
+      <span class="tp-title">Season One Top Performers</span>
+      <a href='//hltv.org' target='_blank'>
+        <img src="//cdn.eleague.com/global/images/hltv.png" alt='Stats powered by HLTV.org'>
+      </a>
+    </div>
+    <div class="performer-container">
+      <div class="performer-template hide">
+        <img class="player-image-premier" alt='player headshot'>
+        <div class="player-info">
+          <div class="category"></div>
+          <div class="gamerTag"></div>
+          <div class="flag-name-container">
+            <img class="flag" alt='flag'>
+            <div class="name"></div>
+          </div>
+        </div>
+        <div class="score"></div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: gallery_home
+label: 'gallery home'
+effects:
+  555e218b-6297-4ec4-8dc9-2312e1aff33a:
+    uuid: 555e218b-6297-4ec4-8dc9-2312e1aff33a
+    id: image_resize
+    weight: 1
+    data:
+      width: 1200
+      height: 800

@@ -1,0 +1,120 @@
+.view-list-articles {
+    background-color: #181818;
+    padding: 100px;
+
+    @media screen and (max-width: 768px) {
+        padding: 30px;
+    }
+
+    .field-content a {
+        color: #fff;
+        &:hover {
+            color: #bdbdbd;
+            .article-footer {
+                color: #fff;
+            }
+        }
+    }
+
+    .article-title {
+        display: inline-block;
+        @media screen and (min-width: 768px) {
+            line-height: 30px;
+            font-size: 24px;
+        }
+        margin: 0 4% 0 0;
+        padding: 0;
+    }
+
+    .article-body {
+        @media screen and (min-width: 768px) {
+            padding-top: 8px;
+            line-height: 22px;
+            font-size: 15px;
+        }
+    }
+
+    .article-footer {
+        padding: 15px 0 30px 0;
+        div {
+            display: inline-block;
+        }
+        .article-publish-date {
+            margin-left: 48px;
+            color: #999;
+        }
+    }
+
+    /* menu styles */
+    label {
+        font-size: 34px;
+        font-weight: normal;
+    }
+
+    .btn-group {
+        margin-left: 20px;
+        &.open button.dropdown-toggle {
+            background: #000;
+            color: #fff;
+            &:focus {
+                background: #000;
+                color: #fff;
+            }
+            .caret {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    select,
+    button.dropdown-toggle,
+    ul.dropdown-menu,
+    li {
+        width: 262px;
+        height: 44px;
+        background: #171717;
+        border: 1px solid #777;
+        border-radius: 0;
+        -webkit-appearance: none;
+        text-align: center;
+        color: #fff;
+        line-height: 44px;
+        &:hover {
+            background: #000;
+        }
+    }
+
+    ul.dropdown-menu {
+        margin-top: 0;
+        padding: 0;
+        height: auto;
+    }
+
+    button.dropdown-toggle {
+        padding: 0;
+        &:active {
+            background: #000;
+            color: #fff;
+        }
+        .caret {
+            margin-left: 10px;
+        }
+    }
+
+    li {
+        color: #fff;
+    }
+
+    li:hover {
+        background: #777;
+    }
+
+    input.js-form-submit,
+    select.form-select {
+        display: none;
+    }
+    .article-list-content {
+        border-top: 1px solid #777;
+        padding-top: 35px;
+    }
+}

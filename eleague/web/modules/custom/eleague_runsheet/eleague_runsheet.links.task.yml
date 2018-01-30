@@ -1,0 +1,23 @@
+# ELEAGUE runsheet routing definition
+
+entity.eleague_runsheet.canonical:
+  route_name: entity.eleague_runsheet.canonical
+  base_route: entity.eleague_runsheet.canonical
+  title: 'View'
+
+entity.eleague_runsheet.edit_form:
+  route_name: entity.eleague_runsheet.edit_form
+  base_route: entity.eleague_runsheet.canonical
+  title: 'Edit'
+
+entity.eleague_runsheet.version_history:
+  route_name: entity.eleague_runsheet.version_history
+  base_route: entity.eleague_runsheet.canonical
+  title: 'Revisions'
+
+entity.eleague_runsheet.delete_form:
+  route_name:  entity.eleague_runsheet.delete_form
+  base_route:  entity.eleague_runsheet.canonical
+  title: Delete
+  weight: 10
+

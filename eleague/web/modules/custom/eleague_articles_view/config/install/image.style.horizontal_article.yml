@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: horizontal_article
+label: 'horizontal article'
+effects:
+  28cb5a7d-5acd-4faf-9ad6-652419088b01:
+    uuid: 28cb5a7d-5acd-4faf-9ad6-652419088b01
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 460
+      height: 286

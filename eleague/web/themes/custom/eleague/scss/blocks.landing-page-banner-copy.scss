@@ -1,0 +1,19 @@
+.block-landing-page-banner-copy {
+  .page-title-wrapper {
+    background-color: $page-title-wrapper-bg-color;
+    padding: $page-title-wrapper-padding;
+
+    .copy-container {
+      display: inline-block;
+      width: 100%;
+
+      @media screen and (min-width: 850px) {
+        width: 75%;
+      }
+
+      .subtext {
+        color: $site-wrapper-subtext-color;
+      }
+    }
+  }
+}

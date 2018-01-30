@@ -1,0 +1,19 @@
+.team-wrapper {
+  margin: 0 20px;
+
+  .team-img-wrapper {
+    text-align: center;
+  }
+
+  .major-titles-ribbon {
+    display: inline-block;
+    float: left;
+    padding-right: 10px;
+    font-size: em(13px);
+  }
+
+  .team-info {
+    color: $grey-2;
+    font-size: em(18px);
+  }
+}

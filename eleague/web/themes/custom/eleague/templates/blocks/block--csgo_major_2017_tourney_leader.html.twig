@@ -1,0 +1,119 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+{{ attach_library('eleague/performer-leaders-major2017') }}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div class="tournament_leader">
+    <div class="performer-leader">
+      <div class="tourney-leader">
+        <div class="title">
+          <span>Major Tournament Leader</span>
+        </div>
+        <div class="tl-profile-container">
+          <div class="tl-headshot">
+            <img id="tl-player-pic" src="http://cdn.eleague.com/homepage/players/188x188/sk/coldzera.png" alt='coldzera headshot'>
+          </div>
+          <div class="tl-profile">
+            <span class="tl-gamertag">coldzera</span>
+            <div class="tl-team">
+              <div class="tl-team-icon">
+                <img id="tl-tm-icon-link" src="http://cdn.eleague.com/csgo/images/sk_b.png" alt=' logo'>
+              </div>
+              <span class="tl-team-name">SK Gaming</span>
+            </div>
+            <div class="tl-stats">
+              <div class="tl-stats-box">
+                <span class="tl-stats-title">Maps</span>
+                <span class="tl-stats-number">9</span>
+              </div>
+              <div class="tl-stats-box mid-left">
+                <span class="tl-stats-title">K-D Diff</span>
+                <span class="tl-stats-number">
+                <span class="pos-neg">+</span>64
+              </span>
+              </div>
+              <div class="tl-stats-box mid-right">
+                <span class="tl-stats-title">K/D</span>
+                <span class="tl-stats-number">1.45</span>
+              </div>
+              <div class="tl-stats-box">
+                <span class="tl-stats-title">Rating</span>
+                <span class="tl-stats-number">1.31</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-write-up">
+          <p>coldzera is the world's most efficient player. When he is in form he dominates the game with a high amount of kills and few deaths. Famed for his consistent spray, he is less the player who produces highlight headshots and more the one who grinds opponents down one after another. In the system of SK, coldzera is the most important part and his performance reflects the effective nature of their team structure. Playing in one of the best teams of all-time, the Brazilian star sees his level elevated into the stratosphere.<a href='https://www.youtube.com/watch?v=tXoC5ljb7HY&t=1s' target='_blank' style='color: #000; text-decoration: underline;'>WATCH NOW</a></p>
+        </div>
+        <div class="tl-author">
+          <img class="player-image" src="http://cdn.eleague.com/homepage/broadcast_talent/thorin_cut.png"alt='thorin headshot'>
+          <div>
+            <span>Player analysis written by</span>
+            <h2>Thorin Shields</h2>
+          </div>
+        </div>
+      </div>
+      <div class="top-performers">
+    <div class="title tp-title flex row">
+      <span class="tp-title">Major Tournament Top Performers</span>
+      <a href='//hltv.org' target='_blank'>
+        <img src="//cdn.eleague.com/global/images/hltv.png" alt='Stats powered by HLTV.org'>
+      </a>
+    </div>
+    <div class="performer-container">
+      <div class="performer-template hide">
+        <img class="player-image-premier" alt='player headshot'>
+        <div class="player-info">
+          <div class="category"></div>
+          <div class="gamerTag"></div>
+          <div class="flag-name-container">
+            <img class="flag" alt='flag'>
+            <div class="name"></div>
+          </div>
+        </div>
+        <div class="score"></div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>

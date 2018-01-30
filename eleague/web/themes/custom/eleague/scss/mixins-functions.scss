@@ -1,0 +1,27 @@
+// PX to EM Function - https://css-tricks.com/snippets/sass/px-to-em-functions/
+// Example: em(40) || em(40, 16) || em(40px) || em(40px, 16px)
+// returns EM equivalent
+
+$browser-context: 16;
+
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+// Tracking to Letter Spacing - https://github.com/studio-collin/photoshop-letter-tracking
+// Example:
+// h1 {
+//   @include letter-tracking(150);
+// }
+// returns letter-spacing property with EM spacing value.
+@mixin letter-tracking($letter-tracking-value) {
+  letter-spacing: $letter-tracking-value / 1000 + em;
+}

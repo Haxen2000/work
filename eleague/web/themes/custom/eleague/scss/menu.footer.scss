@@ -1,0 +1,28 @@
+.menu-footer {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 20px 8%;
+
+  ul.menu {
+    display: block;
+    margin-left: 0;
+
+    li.menu-item {
+      display: inline;
+
+      a {
+
+        color: $secondary;
+        font-size: 0.67em;
+        text-decoration: underline;
+        padding: 0 10px;
+        border-right: 1px solid $secondary;
+
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,10 @@
+name: 'ELEAGUE Runsheet'
+type: module
+description: 'Module to extend eleague runsheet'
+core: 8.x
+package: ELEAGUE
+dependencies:
+  - draco_runsheet
+  - field
+  - user
+version: 8.x-1.0

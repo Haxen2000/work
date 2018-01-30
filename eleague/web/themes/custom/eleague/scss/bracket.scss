@@ -1,0 +1,780 @@
+.bracket {
+  color: $primary;
+
+  .upper-bracket {
+    height: 540px;
+
+    .header-img-holder {
+      height: 100px;
+      margin: auto;
+      width: 90%;
+    }
+  }
+
+  .lower-bracket {
+    height: 220px;
+  }
+
+  .row {
+    display: inline-block;
+    margin: 0 0 -8px;
+    padding: 0 30px;
+    position: relative;
+    width: 100%;
+
+    &.adjustup {
+      margin-top: -25px;
+    }
+  }
+
+  .round-info {
+    color: $grey-2;
+    float: left;
+    font-family: agency;
+    font-size: 11px;
+    margin-top: -22px;
+    text-transform: uppercase;
+
+    &.col4 {
+      float: right;
+    }
+  }
+
+  .team {
+    background: rgba(0,0,0,.5);;
+    border: 1px solid $grey-3;
+    color: $primary;
+    display: block;
+    float: left;
+    font-family: agency;
+    height: 52px;
+    position: relative;
+    text-align: center;
+    width: 18%;
+    z-index: 1;
+
+    &.col1,
+    &.col2 {
+      .score {
+        float: left;
+      }
+    }
+
+    &.col4,
+    &.col5 {
+      &::before {
+        transform: scaleX(-1);
+      }
+
+      .name {
+        float: right;
+        text-align: right;
+        padding-right: 15px;
+      }
+
+      .img-holder {
+        float: right;
+      }
+
+      .score {
+        float: right;
+      }
+    }
+
+    span {
+      display: inline-block;
+      font-weight: normal;
+      height: 100%;
+      line-height: 50px;
+      text-align: center;
+    }
+
+    .name {
+      color: $secondary;
+      float: left;
+      font-size: 22px;
+      padding-left: 15px;
+      text-align: left;
+      text-transform: uppercase;
+      width: 64%;
+
+      &.center {
+        padding: 0;
+        width: 100%;
+      }
+    }
+
+    .img-holder {
+      background: $primary;
+      border-left: 1px solid $grey-3;
+      border-right: 1px solid $grey-3;
+      display: block;
+      float: left;
+      height: 100%;
+      padding: 2%;
+      text-align: center;
+      width: 26%;
+
+      /*&::before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }*/
+    }
+
+    .logo {
+      height: auto;
+      min-height: 42px;
+      vertical-align: middle;
+      width: 42px;
+    }
+
+    .score {
+      color: $secondary;
+      font-size: 18px;
+      text-align: center;
+      width: 10%;
+    }
+  }
+
+  .col2 {
+    margin-left: 19%
+  }
+
+  .col3 {
+    &:first-child {
+      margin-left: 40%;
+    }
+  }
+
+  .col4 {
+    float: right;
+    margin-right: 19%;
+  }
+
+  .col5 {
+    float: right;
+  }
+
+  .champs {
+    .round-info {
+      background: none;
+      margin: -102px 5% 0;
+      text-align: center;
+      width: 90%;
+    }
+
+    .team {
+      .logo {
+        width: 65px;
+      }
+
+      > * {
+        display: none;
+      }
+
+      .img-holder {
+        background: 0;
+        border: 0;
+        display: block;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+  
+  .bracket-line {
+    border: 1px solid $grey-3;
+    height: 25px;
+    position: absolute;
+    width: 27%;
+    z-index: 0;
+
+    &.no-bottom {
+      border-bottom: 0;
+    }
+
+    &.no-top {
+      border-top: 0;
+      margin-top: 26px;
+    }
+  }
+
+  .overlay {
+    background: $grey-4;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+
+    &:hover:not(.empty) {
+      background: #248;
+      opacity: .4;
+    }
+  }
+  
+  .lose {
+    .name,
+    .score {
+      color: $grey-2;
+    }
+
+    .logo {
+      opacity: .5;
+    }
+  }
+
+  &.standard-8 {
+    background-color: #050505;
+    background-image: url('//cdn.eleague.com/img/csgo/major-2018/boston_major_schedule_pagev2.jpg');
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 455px;
+    padding-top: 12.5%;
+
+    .col3 {
+      background: none;
+      border: 0;
+      width: 10%;
+
+      &::before {
+        content: initial;
+      }
+    }
+
+    .bracket-line {
+      left: 30px;
+
+      &:last-child {
+        left: auto;
+        right: 30px;
+      }
+    }
+
+    .semis {
+      .bracket-line {
+        display: none;
+      }
+    }
+
+    .champs {
+      .champteam {
+        margin-left: -15%;
+        top: 60px;
+      }
+
+      .round-info {
+        margin-top: -142px;
+      }
+    }
+  }
+
+  &.double-elim {
+    .col1 {
+      margin-left: 10%;
+    }
+
+    .col3 {
+      margin-left: 70%;
+    }
+
+    .upper-bracket .col2 {
+      margin-left: 42%;
+    }
+
+    .lower-bracket .col2 {
+      margin-left: 14%;
+    }
+
+    .bracket-line {
+      margin-left: 10%;
+      width: 38%;
+    }
+
+    .lower-bracket .semis .bracket-line {
+      left: 19%;
+      width: 56%;
+    }
+
+    .semis .bracket-line {
+      left: 33%;
+      height: 30px;
+    }
+
+    @media all and (max-width: 641px) {
+      .row {
+        padding: 0 15px;
+      }
+
+      .col1 {
+        margin-left: 0;
+      }
+      
+      .upper-bracket .col2 {
+        margin-left: 40%;
+      }
+      
+      .lower-bracket .col2 {
+        margin-left: 5%;
+      }
+      
+      .team.col3 {
+        margin-left: 81%;
+        width: 70px;
+      }
+
+      .round-info {
+        margin-left: 0;
+      }
+
+      .team {
+        height: 70px;
+        width: 36%;
+      }
+
+      .row.adjustup {
+        margin-top: -34px
+      }
+    }
+
+    @media all and (min-width: 320px) and (max-width: 641px) and (orientation: landscape) {
+      .upper-bracket {
+        .semis {
+          .bracket-line {
+            left: 41%;
+          }
+        }
+      }
+
+      .lower-bracket {
+        .semis {
+          .bracket-line {
+            left: 20%;
+          }
+        }
+        .col2 {
+          margin-left: 11%;
+        }
+      }
+
+      .bracket {
+        .team.col3 {
+          margin-left: 89%;
+        }
+      }
+    }
+  }
+  
+  @media all and (max-width: 1200px) {
+    .team {
+      .logo {
+        min-height: 43px;
+        width: 43px;
+      }
+
+      .name {
+        padding-right: 8px;
+      }
+
+      span {
+        font-size: 1em;
+      }
+    }
+
+    .col4.team,
+    .col5.team {
+      .name {
+        padding-right: 8px;
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media all and (max-width: 1023px) {
+    .team,
+    .bracket-line {
+      height: 70px;
+    }
+
+    .team {
+      .logo {
+        min-height: 40px;
+        width: 40px;
+      }
+
+      .name {
+        padding-right: 8px;
+        font-size: 17px;
+      }
+
+      span {
+        font-size: .7em;
+        line-height: 70px;
+      }
+    }
+
+    .round-info {
+      font-size: .7em;
+    }
+
+    .row.adjustup {
+      margin-top: -34px;
+    }
+
+    .champs .team .logo {
+      width: 58px;
+    }
+  }
+
+  @media all and (max-width: 961px) {
+    .row {
+      padding: 0 15px;
+    }
+
+    .team {
+      width: 20%;
+    }
+
+    .col2 {
+      margin-left: 22%;
+    }
+
+    .round-info.col2 {
+      margin-right: 58%;
+    }
+
+    .col4 {
+      margin-right: 22%;
+    }
+
+    .round-info.col4 {
+      margin-left: 58%;
+    }
+
+    &.standard-8 {
+      height: 305px;
+      padding-top: 5%;
+
+      .bracket-line {
+        height: 22.5px;
+
+        &.no-top {
+          margin-top: 17px;
+        }
+      }
+
+      .row {
+        &.adjustup {
+          margin-top: -16px;
+        }
+
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7) {
+          top: -5px;
+        }
+      }
+
+      .team {
+        height: 40px;
+
+        .logo {
+          min-height: 26px;
+          width: 26px;
+          margin-top: 3px;
+        }
+
+        .name,
+        .score {
+          font-size: 11px;
+        }
+
+        span {
+          line-height: 40px;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 641px) {
+    background-position: center -60px;
+    background-size: contain;
+    height: 725px;
+
+    &.standard-8 {
+      background-image: url('//cdn.eleague.com/img/csgo/major-2018/boston_major_logo.png');
+      background-position: 50%;
+      background-size: 40%;
+      height: 490px;
+      padding-top: 30px;
+
+      .row.adjustup {
+        margin-top: 0;
+        top: -7.5px;
+      }
+
+      .row {
+        &:nth-child(3) {
+          .col4 {
+            top: 244px;
+          }
+        }
+
+        &:nth-child(5) {
+          top: 150px;
+
+          .col2 {
+            top: -245px;
+          }
+        }
+
+        &:nth-child(6),
+        &:nth-child(7) {
+          top: -133px;
+        }
+      }
+
+      .team {
+        width: 42%;
+        height: 30px;
+
+        .img-holder,
+        .score {
+          float: left !important;
+        }
+
+        .logo {
+          margin: 0;
+          min-height: 20px;
+          width: 20px;
+        }
+
+        span {
+          line-height: 30px;
+        }
+      }
+      
+      .col3 {
+        width: 100%;
+
+        .img-holder {
+          text-align: right !important;
+        }
+      }
+      
+      .col3,
+      .col3:first-child {
+        margin-left: 0;
+        padding-left: 92%;
+      }
+
+      .col4 {
+        top: -1px;
+      }
+
+      .col5 {
+        left: -42%;
+        top: 274px;
+      }
+
+      .bracket-line {
+        width: 46%;
+        height: 20px;
+        border-left: 0;
+
+        &:nth-child(3) {
+          top: 0;
+        }
+
+        &:last-child {
+          right: initial;
+        }
+
+        &.no-top {
+          margin-top: 9px;
+        }
+      }
+      
+      .bracket-line:nth-child(4),
+      .bracket-line:nth-child(6) {
+        top: 274px;
+      }
+
+      .semis {
+        .bracket-line {
+          float: right;
+          margin: 0 30px 0 0;
+          left: 160px;
+        }
+      }
+
+      .champs {
+        top: 95px;
+
+        .champteam {
+          margin-left: -11%;
+          margin-top: -30px;
+          top: 60px;
+        }
+
+        .round-info {
+          margin-top: -30px;
+        }
+      }
+    }
+
+    .col2,
+    .col4 {
+      margin-left: 58%;
+    }
+
+    .col4 {
+      clear: both;
+      float: none;
+      margin-right: 0;
+      top: 370px;
+    }
+
+    .col5 {
+      float: left;
+      left: -32%;
+      top: 440px;
+    }
+
+    .team {
+      .img-holder {
+        float: left;
+      }
+
+      .name {
+        float: left;
+        font-size: 13px;
+        padding: 0 5px;
+        text-align: left;
+      }
+
+      .score {
+        font-size: 13px;
+      }
+
+      span {
+        font-size: .6em;
+        line-height: 27.5px;
+      }
+
+      &.col4,
+      &.col5 {
+        &::before {
+          transform: scaleX(1);
+        }
+        
+        .name {
+          text-align: left;
+          padding-left: 8px;
+        }
+      }
+    }
+
+    .bracket-line {
+      display: block;
+      margin-left: 26.5%;
+    }
+
+    .semis {
+      .bracket-line {
+        border-left: 0;
+      }
+    
+      .bracket-line.no-top {
+        height: 165px;
+        top: 276px;
+      }
+    }
+    
+    .round-info {
+      float: left;
+      font-size: .65em;
+      margin-right: 0;
+
+      &.col2 {
+        margin-left: 58%;
+        margin-right: 0;
+      }
+
+      &.col4 {
+        float: left;
+        position: relative;
+        top: 275px;
+      }
+
+      &.col5 {
+        left: 0 !important;
+        margin-left: 0;
+        position: relative;
+      }
+    }
+
+    .champs {
+      .round-info {
+        background: $primary;
+        font-size: .8em;
+        margin-left: 58%;
+        width: auto;
+      }
+      .team .logo {
+        margin: 0;
+        max-width: initial;
+        width: 45px;
+      }
+    }
+    
+    .upper-bracket .header-img-holder {
+      background-size: contain;
+    }
+  }
+
+  @media all and (min-width: 320px) and (max-width: 481px) and (orientation: portrait) {
+    .team span {
+      font-size: .6em;
+    }
+  }
+
+  @media all and (min-width: 320px) and (max-width: 641px) and (orientation: landscape) {
+    .team {
+      width: 32%;
+
+      span {
+        font-size: 1em;
+      }
+    }
+    
+    .bracket-line {
+      margin-left: 20%;
+    }
+    
+    .semis {
+      .bracket-line {
+        margin-right: 19.5%;
+        right: 0;
+      }
+    }
+    
+    .champs {
+      .round-info {
+        margin-left: 65%;
+        background: none;
+      }
+    }
+
+    &.standard-8 {
+      .col3,
+      .col3:first-child {
+        padding-left: 66%;
+        margin-left: 0;
+        width: 100% !important;
+      }
+    }
+  }
+}

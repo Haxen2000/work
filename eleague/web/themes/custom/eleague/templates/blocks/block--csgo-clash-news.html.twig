@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+<div class="csgo_articles clash-at-a-glance">
+    <h2 class="clash-header">{{ 'At-A-Glance'|t }}</h2>
+    <div class="csgo-container">
+        <div class="block-article card">
+            <div class="article-image"><img src ="/themes/custom/eleague/images/CSGO_CLASH_FOR_CASH_423x282_VIDEO_THEMATCHUP.png"><a href="https://www.youtube.com/watch?v=egucUhs94Yg" target="blank"><img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('ELEAGUE - Clash For Cash - The Match Up')|t }}</div>
+                <div class="article-body">{{ ('Hear what several CSGO Professionals think of the upcoming Clash for Cash matchup. Which team will walk away with a cool 250k?')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="https://www.youtube.com/watch?v=egucUhs94Yg" target="blank" class="clash-footer">{{ ('Watch Now')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="block-article card">
+            <div class="article-image"><a href="/news/2017/6/6/in-focus-clash-for-cash-a-match-for-redemption"><img src ="/themes/custom/eleague/images/t3_IN_FOCUS_C4C_361x200.jpg"></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('Clash for Cash: A Match for Redemption')|t }}</div>
+                <div class="article-body">{{ ('After a rematch of the final of the Major Championship, Virtus Pro and Astralis have gone on completely different paths, especially when it comes to online competitions. This year, Clash for Cash is an opportunity for redemption and a chance for everyone to see which team will come out as number one. Richard Lewis gives us a view of both teams as this $250,000 tournament approaches.')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="/news/2017/6/6/in-focus-clash-for-cash-a-match-for-redemption" class="clash-footer">{{ ('Read More')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="block-article card">
+            <div class="article-image"><img src ="/themes/custom/eleague/images/CSGO_CLASH_FOR_CASH_423x282_VIDEO_MICD_UP.png"><a href="https://www.youtube.com/watch?v=qzy7JijsAJE&t=25s" target="blank"><img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('MIC\'D UP: Clash 4 Cash')|t }}</div>
+                <div class="article-body">{{ ('Relive moments from the ELEAGUE Major from the point of view of the players with this rare opportunity to listen in on team comms. Are you ready for the ELEAGUE Clash for Cash: The Rematch? Friday June 16th 10PM ET, TBS.')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="https://www.youtube.com/watch?v=qzy7JijsAJE&t=25s" target="blank" class="clash-footer">{{ ('Watch Now')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

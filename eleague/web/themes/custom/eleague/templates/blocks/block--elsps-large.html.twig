@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div class="schedule">
+    <div class="schedule_data">
+    <div class="schedule_title">Title: {{ content.field_title }}</div>
+    {% for match_index in content.field_elsp_match_index  %}
+      <div class="match_data">
+        <div>Match Index: {{ content.field_elsp_match_index[loop.index0] }}</div>
+        <div>Bracket Status: {{ content.field_elsp_bracket_status[loop.index0] }}</div>
+        <div>Is Complete: {{ content.field_elsp_is_complete[loop.index0] }}</div>
+        <div>Broadcast: {{ content.field_elsp_broadcast[loop.index0] }}</div>
+        <div>Start Time: {{ content.field_elsp_start_time[loop.index0]|date("m/d/Y h:i")|default('TBD') }}</div>
+        {% for top_bottom in content.field_elsp_round_1_top_bottom %}
+          <div class="game_data">
+            <div>Round 1 Top/Bottom: {{ content.field_elsp_round_1_top_bottom[loop.index0] }}</div>
+            <div>Round 2 Top/Bottom: {{ content.field_elsp_round_2_top_bottom[loop.index0] }}</div>
+            <div>Round 3 Top/Bottom: {{ content.field_elsp_round_3_top_bottom[loop.index0] }}</div>
+          </div>
+        {% endfor %}
+        {% for player in content.field_elsp_player %}
+          <div class="player_data">
+            <div>Player: {{ content.field_elsp_player[loop.index0] }}</div>
+            <div>Top/Bottom: {{ content.field_player_top_bottom[loop.index0] }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>

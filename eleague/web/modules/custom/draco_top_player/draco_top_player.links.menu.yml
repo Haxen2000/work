@@ -1,0 +1,14 @@
+draco_top_player_menu:
+  title: 'Draco TOP player settings'
+  description: 'Configure the TOP video player.'
+  parent: system.admin_config_media
+  route_name: draco_top_player.settings
+
+# Player config menu items definition
+entity.player_config.collection:
+  title: 'Player config'
+  route_name: entity.player_config.collection
+  description: 'List Player config (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

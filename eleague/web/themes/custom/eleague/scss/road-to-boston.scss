@@ -1,0 +1,88 @@
+.road-background {
+  padding: 0 15%;
+  background: $grey-2;
+  top: 100px;
+  margin-bottom: 40px;
+
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
+
+  .row {
+    background-color: $primary;
+  }
+
+  .qualifier {
+    text-align: left;
+    padding-left: 45px;
+  }
+
+  a, a:visited, a:hover {
+    color: #0882aa;
+    text-decoration: none;
+  }
+
+  p {
+    width: 80%;
+    margin: auto;
+  }
+
+  .bottom {
+    background: $grey-5;
+    padding-top: 30px;
+
+    .details {
+      color: $secondary;
+      text-align: center;
+    }
+  }
+
+  .social-icons-road.footer {
+    text-align: center;
+    background: $grey-5;
+
+    a {
+      margin: 15px;
+      display: inline-block;
+      width: 32px;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  table {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+    color: $secondary;
+
+    @media (max-width: 768px) {
+      width: 90%
+    }
+
+    td, th {
+      border-right: 1px solid $grey-4;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    td {
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
+    }
+
+    th {
+      font-size: 22px;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+    }
+  }
+}

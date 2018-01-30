@@ -1,0 +1,7 @@
+name: ELEAGUE Top Player
+type: module
+description: Custom Top player for ELEAGUE
+core: 8.x
+package: ELEAGUE
+dependencies: draco_zeus
+

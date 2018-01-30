@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Untitled Document</title>
+		<link type="text/css" rel="stylesheet" href="http://poc.eyewonderlabs.com/_ja/html5_training/exercise_assets/css3_i/external.css" />
+        <style type="text/css">
+			h1 + *{ background-color: MediumSeaGreen; }
+			h2 ~ *{ border: 2px solid black; }
+			#base h3:nth-child(2){ border-color: GoldenRod; }
+		</style>
+		<script>
+				document.createElement ( 'h1' );
+				document.createElement ( 'h2' );
+				document.createElement ( 'h3' );
+				window.onload = function ( ) {
+					var elms = [ ];
+					var ndx = 1;
+					var base = document.getElementById ( 'base' );
+					setInterval ( int, 25 );
+					elms.push ( base.getElementsByTagName ( 'h1' ) [ 0 ] );
+					elms.push ( base.getElementsByTagName ( 'h2' ) [ 0 ] );
+					elms.push ( base.getElementsByTagName ( 'h3' ) [ 0 ] );
+					for ( var n in elms ) set ( elms [ n ] );
+					align ( );
+					function set ( elm ) {
+						var pnt = parseFloat ( elm.style.top || 0 );
+						elm.onmousedown = function ( evt ) {
+							var evt = evt || window.event;
+							var tp = parseFloat ( elm.style.top || 0 );
+							var cy = evt.clientY;
+							elm.style.zIndex = ndx++;
+							document.onmousemove = function ( evt ) {
+								var evt = evt || window.event;
+								ease ( elm, tp + evt.clientY - cy, 1 );
+								return false;
+							}
+							document.onmouseup = align;
+							return false;
+						}
+					}
+					function align ( ) {
+						var lvl = 0;
+						document.onmouseup = document.onmousemove = null;
+						elms.sort ( on_y )
+						for ( var i in elms ) {
+							ease ( base.appendChild ( elms [ i ] ), lvl, 400 );
+							lvl += 125;
+						}
+						function on_y ( a, b ) {
+							return Math.min ( 1, Math.max ( -1 , a.offsetTop - b.offsetTop ) );
+						}
+					}
+					function int ( ) {
+						for ( var n in elms ) if ( elms [ n ].eaz ) elms [ n ].eaz ( );
+					}
+					function ease ( obj, end, dur ) {
+						var sty = obj.style;
+						var init = parseFloat ( sty.top || 0 );
+						var diff = end - init;
+						var time = 0;
+						obj.eaz = function ( ) {
+							var step = Math.min ( dur, time += 40 );
+							sty.top = ( diff * ( ( step = step / dur - 1 ) * step * step + 1 ) + init ) + 'px';
+							if ( !step ) obj.eaze = null;
+						}
+					}
+				}
+		</script>
+	</head>
+	<body>
+		<div id="base">
+			<h1><b>this is an <span>h1</span> element.</b><br />its adjacent-sibling will have a<br /><span>medium-sea-green background</span>.</h1>
+			<h2><b>this is an <span>h2</span> element.</b><br />its general-siblings will have a<br /><span>two-pixel black border</span>.</h2>
+			<h3><b>this is an <span>h3</span> element.</b><br />it has a <span>golden-rod border</span> while it<br />is the middle child.</h3>
+		</div>
+	</body>
+</html>

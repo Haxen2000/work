@@ -1,0 +1,30 @@
+/*scss for Gallery of galleries */
+
+.block-gallery-of-galleries {
+  color: $primary;
+  background-color: $secondary;
+  margin: 0 20px;
+
+  > h2 {
+    padding-left: 17px !important;
+  }
+
+  .in_galleries_block {
+    padding: 20px;
+
+    .gallery_image {
+      padding: 35px 0;
+      border-bottom: 1px solid $primary;
+    }
+
+    .gallery_date, .gallery_location {
+      font-size: em(20);
+    }
+
+    .gallery_title {
+      font-size: em(26);
+      font-weight: bold;
+      padding-bottom: 8px;
+    }
+  }
+}

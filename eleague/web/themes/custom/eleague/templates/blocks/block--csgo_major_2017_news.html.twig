@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+<div class="csgo_articles clash-at-a-glance">
+    <h2 class="clash-header">{{ 'Top Stories'|t }}</h2>
+    <div class="csgo-container">
+        <div class="block-article card">
+            <div class="article-image"><img src ="/themes/custom/eleague/images/Green_room_t2_B.jpg"><a href="/news/2017/1/10/majors-matter-more" target="_top"><!--img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"--></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('Majors Matter More')|t }}</div>
+                <div class="article-body">{{ ('The ELEAGUE major is just over two weeks away, and the air is already abuzz with anticipation for what may unfold in Atlanta.  In this week\'s edition of "The Green Room", Duncan Shields sheds light on why the majors matter more than any other tournament.')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="/news/2017/1/10/majors-matter-more" target="_top" class="clash-footer">{{ ('Read More')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="block-article card">
+            <div class="article-image"><a href="https://www.youtube.com/watch?v=tXoC5ljb7HY" target="_blank"><img src ="/themes/custom/eleague/images/coldzera.jpg"><img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('Player Profile - Coldzera - SK Gaming')|t }}</div>
+                <div class="article-body">{{ ('The best players are not made overnight. ELEAGUE and Valve partner up for an inside look at the story behind this Brazilian phenom.')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="https://www.youtube.com/watch?v=tXoC5ljb7HY" target="_blank" class="clash-footer">{{ ('Watch now')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="block-article card">
+            <div class="article-image"><img src ="/themes/custom/eleague/images/duncan_video.jpg"><a href="https://www.youtube.com/watch?v=J52upZra2H0&t=6s" target="_blank"><img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('The Majors of CS:GO')|t }}</div>
+                <div class="article-body">{{ ('What started as a bold experiment transformed into a worldwide phenomenon; discover the legacy of Counter-Strike’s most prestigious tournaments.')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="https://www.youtube.com/watch?v=J52upZra2H0&t=6s" target="_blank" class="clash-footer">{{ ('Watch Now')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: homepage_live_ribbon
+label: 'Homepage Live Ribbon'
+positions:
+  -
+    label: 'Homepage Live Ribbon'
+    id: top

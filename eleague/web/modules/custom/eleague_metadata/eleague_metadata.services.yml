@@ -1,0 +1,7 @@
+services:
+  eleague_metadata.listener:
+    class: Drupal\eleague_metadata\EventSubscriber\MetadataListener
+    arguments: []
+    tags:
+      - { name: event_subscriber }
+

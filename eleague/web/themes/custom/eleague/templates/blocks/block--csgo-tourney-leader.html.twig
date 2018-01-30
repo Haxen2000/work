@@ -1,0 +1,119 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+{{ attach_library('eleague/performer-leaders') }}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div class="tournament_leader">
+    <div class="performer-leader">
+      <div class="tourney-leader">
+        <div class="title">
+          <span>Premier Tournament Leader</span>
+        </div>
+        <div class="tl-profile-container">
+          <div class="tl-headshot">
+            <img id="tl-player-pic" src="http://cdn.eleague.com/img/csgo/premier/envyus/rpk_188x188.png" alt='rpk headshot'>
+          </div>
+          <div class="tl-profile">
+            <span class="tl-gamertag">RpK</span>
+            <div class="tl-team">
+              <div class="tl-team-icon">
+                <img id="tl-tm-icon-link" src="http://cdn.eleague.com/img/csgo/premier/envyus/envyus_120x120.png" alt=' logo'>
+              </div>
+              <span class="tl-team-name">EnVyUs</span>
+            </div>
+            <div class="tl-stats">
+              <div class="tl-stats-box">
+                <span class="tl-stats-title">Maps</span>
+                <span class="tl-stats-number">7</span>
+              </div>
+              <div class="tl-stats-box mid-left">
+                <span class="tl-stats-title">K-D Diff</span>
+                <span class="tl-stats-number">
+                <span class="pos-neg">+</span>37
+              </span>
+              </div>
+              <div class="tl-stats-box mid-right">
+                <span class="tl-stats-title">K/D</span>
+                <span class="tl-stats-number">1.32</span>
+              </div>
+              <div class="tl-stats-box">
+                <span class="tl-stats-title">Rating</span>
+                <span class="tl-stats-number">1.29</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-write-up">
+          <p>RpK has been around the CS:GO community since its inception. Whether his team is winning or losing, you can almost always find RpK on top of his team’s leader board impacting the game with his aggressive style of entry fragging. After a dominating game over Virtus Pro, with RpK topping the leaderboard with 31 kills, EnVyUs found themselves being dominated by Cloud9, knocking them into the loser's bracket. However, with a resurgence, RpK and EnVyUs clinched a playoff spot after defeating NiP in an intense three map game.<!--a href='http://video.eleague.com/olof-faze-feature-2398-social-1' target='_blank' style='color: #000; text-decoration: underline;'>WATCH NOW</a--></p>
+        </div>
+        <div class="tl-author">
+          <img class="player-image" src="http://cdn.eleague.com/global/images/eleague_logo_100x100.png"alt='eleague logo'>
+          <div>
+            <span>Player analysis written by</span>
+            <h2>TEAM ELEAGUE</h2>
+          </div>
+        </div>
+      </div>
+      <div class="top-performers">
+    <div class="title tp-title flex row">
+      <span class="tp-title">Premier Top Performers</span>
+      <a href='//hltv.org/events/3016/eleague-csgo-premier-2017' target='_blank'>
+        <img src="//cdn.eleague.com/global/images/hltv.png" alt='Stats powered by HLTV.org'>
+      </a>
+    </div>
+    <div class="performer-container">
+      <div class="performer-template hide">
+        <img class="player-image-premier" alt='player headshot'>
+        <div class="player-info">
+          <div class="category"></div>
+          <div class="gamerTag"></div>
+          <div class="flag-name-container">
+            <img class="flag" alt='flag'>
+            <div class="name"></div>
+          </div>
+        </div>
+        <div class="score"></div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ribbon_teaser_bundle
+label: 'Ribbon teaser bundle'
+description: 'this is the ribbon teaser bundle'

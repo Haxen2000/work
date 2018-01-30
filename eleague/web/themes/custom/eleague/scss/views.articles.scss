@@ -1,0 +1,120 @@
+.view-block-articles {
+  background-color: $article-view-container-bg-color;
+  border-top: 5px solid $article-view-container-border-color;
+  color: $article-view-container-color;
+  padding: 20px;
+
+  .view-header {
+    .articles-title-block {
+      border-bottom: 1px solid $article-view-block-title-border-color;
+      margin-bottom: 30px;
+
+      .articles-block-title {
+        color: $article-view-heading-color;
+        display: block;
+        font-size: $article-view-heading-font-size;
+        line-height: $article-view-heading-line-height;
+      }
+
+      .articles-block-subtitle {
+        display: block;
+      }
+    }
+  }
+
+  .view-content {
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    .views-row {
+      flex: 1;
+
+      @media screen and (min-width: 768px) {
+        background-color: $article-view-card-bg-color;
+        max-width: 32%;
+      }
+    }
+
+    .block-article {
+      &.card {
+        background-color: $secondary;
+
+        @media screen and (min-width: 768px) {
+          background-color: transparent;
+        }
+      }
+
+      .article-image {
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      .article-content {
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        height: auto;
+
+        @media screen and (min-width: 768px) {
+          min-height: 300px;
+          margin-bottom: 0;
+        }
+      }
+
+      .article-title,
+      .article-body {
+        padding: 5px 20px;
+      }
+
+      .article-title {
+        font-size: $article-view-card-title-font-size;
+        line-height: 30px;
+        padding-top: 20px;
+      }
+
+      .article-body {
+        font-size: $article-view-card-body-font-size;
+        font-weight: 300;
+        padding: 0 20px 30px;
+      }
+
+      .article-footer {
+        bottom: 10px;
+        font-size: $article-view-card-footer-font-size;
+        font-weight: 300;
+        padding: 0 20px;
+        width: 100%;
+
+        @media screen and (min-width: 768px) {
+          max-width: 32%;
+          position: absolute;
+        }
+      }
+
+      .article-publish-date {
+        display: inline-block;
+      }
+
+      .article-view-more {
+        float: right;
+        text-transform: uppercase;
+
+        a {
+          &:before {
+            content: '›';
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}

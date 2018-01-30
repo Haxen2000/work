@@ -1,0 +1,104 @@
+draco_top_player.player_config.*:
+  type: config_entity
+  label: 'Player config config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    player:
+      type: mapping
+      label: 'Player configuration'
+      mapping:
+        autoplay:
+          type: boolean
+          label: 'Turn on autoplay'
+        autoplay_options:
+          type: mapping
+          label: 'Autoplay options'
+          mapping:
+            force_mobile_media:
+              type: boolean
+              label: 'Force autoplay on mobile'
+        media_acceleration:
+          type: boolean
+          label: 'Enable media acceleration'
+        native_controls:
+          type: boolean
+          label: 'Use native browser controls for this player'
+        force_native_captions:
+          type: boolean
+          label: 'Use native browser captions'
+        height:
+          type: string
+          label: 'Player height'
+        width:
+          type: string
+          label: 'Player width'
+    media:
+      type: mapping
+      label: 'Media configuration'
+      mapping:
+        max_bitrate:
+          type: string
+          label: 'Maximum bitrate'
+        min_bitrate:
+          type: string
+          label: 'Minimum bitrate'
+        start_index:
+          type: string
+          label: 'Start index'
+    ads:
+      type: mapping
+      label: 'Ads configuration'
+      mapping:
+        server_base_url:
+          type: string
+          label: 'Server base URL'
+        network_id:
+          type: string
+          label: 'Freewheel network ID'
+        profile:
+          type: string
+          label: 'Ads profile'
+        fallback_id:
+          type: string
+          label: 'Fallback id'
+    sdk:
+      type: mapping
+      label: 'SDK config'
+      mapping:
+        conviva:
+          type: mapping
+          label: 'Conviva options'
+          mapping:
+            conviva_on:
+              type: boolean
+              label: 'Enable Conviva analytics'
+            conviva_kind:
+              type: string
+              label: 'Plugin type'
+            conviva_customer_key:
+              type: string
+              label: 'Conviva customer key'
+            conviva_app_name:
+              type: string
+              label: 'Application name'
+        akamai:
+          type: mapping
+          label: 'Akamai options'
+          mapping:
+            akamai_on:
+              type: boolean
+              label: 'Enable Akamai analytics'
+            akamai_kind:
+              type: string
+              label: 'Plugin type'
+            akamai_config_path:
+              type: string
+              label: 'Akamai config path'
+

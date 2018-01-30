@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+<div class="csgo_articles clash-at-a-glance">
+    <h2 class="clash-header">{{ 'At-A-Glance'|t }}</h2>
+    <div class="csgo-container">
+        <div class="block-article card">
+            <div class="article-image"><img src ="/themes/custom/eleague/images/t2_season2_766x431.jpg"><a href="/news/2016/10/17/counter-strike-season-two-pick-the-winner" target="_top"><!--img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"--></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('Counter-Strike Season 2: Pick the Winners')|t }}</div>
+                <div class="article-body">{{ ('When it comes to making Counter-Strike winning predictions, it’s been a shaky year for Richard Lewis. In this week\'s "In Focus", Richard gives his Season Two predictions, and reminds the fans: There is no clairvoyance, however much his head resembles a crystal ball.')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="/news/2016/10/17/counter-strike-season-two-pick-the-winner" target="_top" class="clash-footer">{{ ('Read More')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="block-article card">
+            <div class="article-image"><a href="https://www.youtube.com/watch?v=_Zxj6arnN6k" target="_blank"><img src ="/themes/custom/eleague/images/opticwin.jpeg"><img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('OpTic Gaming Win & Postgame Interview')|t }}</div>
+                <div class="article-body">{{ ('OpTic Gaming pulled off one of the most startling wins in recent CS memory - here\'s what happened before and after the epic moment.')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="https://www.youtube.com/watch?v=_Zxj6arnN6k" target="_blank"class="clash-footer">{{ ('Watch Now')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="block-article card">
+            <div class="article-image"><img src ="/themes/custom/eleague/images/t2_in_focus_RICHARD_LEWIS_752x423.jpg"><a href="/news/2016/9/26/for-whom-the-bell-tolls" target="_top"><!--img class="play-icon" src="/themes/custom/eleague/images/play-icon.png"--></a></div>
+            <div class="article-content clash-content">
+                <div class="article-title heading-1">{{ ('For Whom the Bell Tolls...')|t }}</div>
+                <div class="article-body">{{ ('Richard Lewis reports on players who should seize the opportunity to hone their skills to handle the demands of high-level Counter-Strike.')|t }}</div>
+                <div class="article-footer">
+                    <div class="article-view-more caps"><a href="/news/2016/9/26/for-whom-the-bell-tolls" target="_top" class="clash-footer">{{ ('Read More')|t }}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

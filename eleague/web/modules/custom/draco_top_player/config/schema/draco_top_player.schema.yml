@@ -1,0 +1,12 @@
+# Schema for the configuration files of the CVP module.
+draco_top_player.settings:
+  type: config_object
+  label: 'TOP Player settings'
+  mapping:
+    top_assets:
+      type: mapping
+      label: 'Location Of Assets'
+      mapping:
+        top_player_js:
+          type: string
+          label: 'TOP Player JavaScript file'

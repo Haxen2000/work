@@ -1,0 +1,7 @@
+name: Draco TOP Video Player
+type: module
+description: 'Integrates the Turner Open Project (TOP) Video Player with Drupal.'
+package: Draco Core
+core: 8.x
+version: 1.0.1
+configure: draco_top_player.settings

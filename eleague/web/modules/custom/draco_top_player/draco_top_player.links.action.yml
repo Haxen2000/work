@@ -1,0 +1,6 @@
+entity.player_config.add_form:
+  route_name: entity.player_config.add_form
+  title: 'Add Player config'
+  appears_on:
+    - entity.player_config.collection
+

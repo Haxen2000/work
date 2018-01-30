@@ -1,0 +1,39 @@
+.s2-bracket-list-container {
+  #playoffs {
+    display: block;
+  }
+  #bracketA {
+    display: none;
+  }
+  #bracketB {
+    display: none;
+  }
+  #bracketC {
+    display: none;
+  }
+  #bracketD {
+    display: none;
+  }
+  #ul-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 64px;
+    line-height: 64px;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+  #ul-menu-list li {
+    display: inline;
+    padding: 0 10px;
+  }
+  .schedule-title {
+    float: left;
+    line-height: 64px;
+    font-weight: bold;
+  }
+  .divider {
+    margin: 0 0 0 15px;
+  }
+}

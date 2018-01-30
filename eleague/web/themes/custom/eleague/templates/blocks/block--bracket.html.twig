@@ -1,0 +1,179 @@
+{# {{ attach_library('eleague/bracket') }} #}
+<div class='bracket {{ content.bracket_type }}'>
+	<div class='row'>
+		<span class='round-info col1'>{{ content.match[0].stage }} 1</span>
+		<span class='round-info col5'>{{ content.match[2].stage }} 3</span>
+		<a class='team col1{% if content.match[0].team[0].score < content.match[0].team[1].score %} lose{% endif %}' href='{{ content.match[0].team[0].href }}'>
+			<div class='overlay'></div>
+			<span class='score'>{{ content.match[0].team[0].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[0].team[0].logo }}' alt='{{ content.match[0].team[0].title }}'>
+			</div>
+			<span class='name'>{{ content.match[0].team[0].title }}</span>
+		</a>
+		<a class='team col5{% if content.match[2].team[0].score < content.match[2].team[1].score %} lose{% endif %}' href='{{ content.match[2].team[0].href }}'>
+			<div class='overlay'></div>
+			<span class='score'>{{ content.match[2].team[0].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[2].team[0].logo }}' alt='{{ content.match[2].team[0].title }}'>
+			</div>
+			<span class='name'>{{ content.match[2].team[0].title }}</span>
+		</a>
+	</div>
+	<div class='row'>
+		<a class='team col1{% if content.match[0].team[1].score < content.match[0].team[0].score %} lose{% endif %}' href='{{ content.match[0].team[1].href }}'>
+			<div class='overlay'></div>
+			<span class='score'>{{ content.match[0].team[1].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[0].team[1].logo }}' alt='{{ content.match[0].team[1].title }}'>
+			</div>
+			<span class='name'>{{ content.match[0].team[1].title }}</span>
+		</a>
+		<a class='team col5{% if content.match[2].team[1].score < content.match[2].team[0].score %} lose{% endif %}' href='{{ content.match[2].team[1].href }}'>
+			<div class='overlay'></div>
+			<span class='score'>{{ content.match[2].team[1].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[2].team[1].logo }}' alt='{{ content.match[2].team[1].title }}'>
+			</div>
+			<span class='name'>{{ content.match[2].team[1].title }}</span>
+		</a>
+		<div class='bracket-line no-bottom'></div>
+		<div class='bracket-line no-bottom'></div>
+	</div>
+	<div class='row semis adjustup'>
+		<span class='round-info col2'>{{ content.match[4].stage }} 1</span>
+		<span class='round-info col4'>{{ content.match[5].stage }} 2</span>
+		{% if content.match[4].team[0].title == '' %}
+			<div class='team col2'>
+		{% else %}
+			<a class='team col2{% if content.match[4].team[0].score < content.match[4].team[1].score %} lose{% endif %}' href='{{ content.match[4].team[0].href }}'>
+		{% endif %}
+			<div class='overlay{% if content.match[4].team[0].title == '' %} empty{% endif %}'></div>
+			<span class='score'>{{ content.match[4].team[0].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[4].team[0].logo|default('http://s3.amazonaws.com/eleague-prod/gallery/blank.png') }}' alt='{{ content.match[4].team[0].title|default('TBD') }}'>
+			</div>
+			<span class='name'>{{ content.match[4].team[0].title }}</span>
+		{% if content.match[4].team[0].title == '' %}
+			</div>
+		{% else %}
+			</a>
+		{% endif %}
+		{% if content.match[5].team[0].title == '' %}
+			<div class='team col4'>
+		{% else %}
+			<a class='team col4{% if content.match[5].team[0].score < content.match[5].team[1].score %} lose{% endif %}' href='{{ content.match[5].team[0].href }}'>
+		{% endif %}
+			<div class='overlay{% if content.match[5].team[0].title == '' %} empty{% endif %}'></div>
+			<span class='score'>{{ content.match[5].team[0].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[5].team[0].logo|default('http://s3.amazonaws.com/eleague-prod/gallery/blank.png') }}' alt='{{ content.match[5].team[0].title|default('TBD') }}'>
+			</div>
+			<span class='name'>{{ content.match[5].team[0].title }}</span>
+		{% if content.match[5].team[0].title == '' %}
+			</div>
+		{% else %}
+			</a>
+		{% endif %}
+		<div class='bracket-line no-bottom'></div>
+	</div>
+	<div class='row champs adjustup'>
+		<div class='team col3'>
+			<!--div class='overlay'></div>
+			<span class='score'>{{ content.match[6].team[0].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[6].team[0].logo|default('http://s3.amazonaws.com/eleague-prod/gallery/blank.png') }}' alt='{{ content.match[6].team[0].title|default('TBD') }}'>
+			</div>
+			<span class='name'>{{ content.match[6].team[0].title }}</span-->
+		</div>
+		<div class='team col3'>
+			<!--div class='overlay'></div>
+			<span class='score'>{{ content.match[6].team[1].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[6].team[1].logo|default('http://s3.amazonaws.com/eleague-prod/gallery/blank.png') }}' alt='{{ content.match[6].team[1].title|default('TBD') }}'>
+			</div>
+			<span class='name'>{{ content.match[6].team[1].title }}</span-->
+		</div>
+		<div class='team col3 champteam'>
+			<div class='img-holder'>
+				<img class='logo' src='{% if content.match[6].team[0].score > content.match[6].team[1].score %}{{ content.match[6].team[0].logo }}{% elseif content.match[6].team[0].score < content.match[6].team[1].score %}{{ content.match[6].team[1].logo }}{% else %}http://s3.amazonaws.com/eleague-prod/gallery/blank.png{% endif %}' alt='{% if content.match[6].team[0].score > content.match[6].team[1].score %}{{ content.match[6].team[0].title }}{% elseif content.match[6].team[0].score < content.match[6].team[1].score%}{{ content.match[6].team[1].title }}{% else %}TBD{% endif %}'>
+			</div>
+		</div>
+		<!--span class='round-info{% if content.match[6].team[0].score == 0 and content.match[6].team[1].score == 0 %} hide{% endif %}'>WINNERS</span-->
+	</div>
+	<div class='row semis adjustup'>
+		{% if content.match[4].team[1].title == '' %}
+			<div class='team col2'>
+		{% else %}
+			<a class='team col2{% if content.match[4].team[1].score < content.match[4].team[0].score %} lose{% endif %}' href='{{ content.match[4].team[1].href }}'>
+		{% endif %}
+			<div class='overlay{% if content.match[4].team[1].title == '' %} empty{% endif %}'></div>
+			<span class='score'>{{ content.match[4].team[1].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[4].team[1].logo|default('http://s3.amazonaws.com/eleague-prod/gallery/blank.png') }}' alt='{{ content.match[4].team[1].title|default('TBD') }}'>
+			</div>
+			<span class='name'>{{ content.match[4].team[1].title }}</span>
+		{% if content.match[4].team[1].title == '' %}
+			</div>
+		{% else %}
+			</a>
+		{% endif %}
+		{% if content.match[5].team[1].title == '' %}
+			<div class='team col4'>
+		{% else %}
+			<a class='team col4{% if content.match[5].team[1].score < content.match[5].team[0].score %} lose{% endif %}' href='{{ content.match[5].team[1].href }}'>
+		{% endif %}
+			<div class='overlay{% if content.match[5].team[1].title == '' %} empty{% endif %}'></div>
+			<span class='score'>{{ content.match[5].team[1].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[5].team[1].logo|default('http://s3.amazonaws.com/eleague-prod/gallery/blank.png') }}' alt='{{ content.match[5].team[1].title|default('TBD') }}'>
+			</div>
+			<span class='name'>{{ content.match[5].team[1].title }}</span>
+		{% if content.match[5].team[1].title == '' %}
+			</div>
+		{% else %}
+			</a>
+		{% endif %}
+		<div class='bracket-line no-top'></div>
+	</div>
+	<div class='row adjustup'>
+		<span class='round-info col1'>{{ content.match[1].stage }} 2</span>
+		<span class='round-info col5'>{{ content.match[3].stage }} 4</span>
+		<a class='team col1{% if content.match[1].team[0].score < content.match[1].team[1].score %} lose{% endif %}' href='{{ content.match[1].team[0].href }}'>
+			<div class='overlay'></div>
+			<span class='score'>{{ content.match[1].team[0].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[1].team[0].logo }}' alt='{{ content.match[1].team[0].title }}'>
+			</div>
+			<span class='name'>{{ content.match[1].team[0].title }}</span>
+		</a>
+		<a class='team col5{% if content.match[3].team[0].score < content.match[3].team[1].score %} lose{% endif %}' href='{{ content.match[3].team[0].href }}'>
+			<div class='overlay'></div>
+			<span class='score'>{{ content.match[3].team[0].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[3].team[0].logo }}' alt='{{ content.match[3].team[0].title }}'>
+			</div>
+			<span class='name'>{{ content.match[3].team[0].title }}</span>
+		</a>
+		<div class='bracket-line no-top'></div>
+		<div class='bracket-line no-top'></div>
+	</div>
+	<div class='row'>
+		<a class='team col1{% if content.match[1].team[1].score < content.match[1].team[0].score %} lose{% endif %}' href='{{ content.match[1].team[1].href }}'>
+			<div class='overlay'></div>
+			<span class='score'>{{ content.match[1].team[1].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[1].team[1].logo }}' alt='{{ content.match[1].team[1].title }}'>
+			</div>
+			<span class='name'>{{ content.match[1].team[1].title }}</span>
+		</a>
+		<a class='team col5{% if content.match[3].team[1].score < content.match[3].team[0].score %} lose{% endif %}' href='{{ content.match[3].team[1].href }}'>
+			<div class='overlay'></div>
+			<span class='score'>{{ content.match[3].team[1].score }}</span>
+			<div class='img-holder'>
+				<img class='logo' src='{{ content.match[3].team[1].logo }}' alt='{{ content.match[3].team[1].title }}'>
+			</div>
+			<span class='name'>{{ content.match[3].team[1].title }}</span>
+		</a>
+	</div>
+</div>

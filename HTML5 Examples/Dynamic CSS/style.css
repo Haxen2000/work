@@ -1,0 +1,25 @@
+h1, h2, h3 { 
+	display:block;
+	font-size:100%;
+	font-weight:normal;
+	background:tan;
+	width:260px;
+	padding:20px;
+	margin-top:20px;
+	border:2px solid transparent;
+	position:absolute; left:0;
+}
+#base {
+	text-align:center;
+	font-family:Arial;
+	width:300px;
+	position:relative;
+	margin:auto;
+}
+span {
+	color:white;
+}
+b {
+	font-weight:normal;
+	font-size:14pt;
+}

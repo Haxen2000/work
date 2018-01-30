@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.broadcast_talent
+  module:
+    - user
+id: node.broadcast_talent.teaser
+targetEntityType: node
+bundle: broadcast_talent
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

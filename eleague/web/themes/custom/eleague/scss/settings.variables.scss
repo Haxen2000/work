@@ -1,0 +1,165 @@
+$primary: #000;
+$secondary: #fff;
+
+$grey-1: #ebebeb;
+$grey-2: #999; // not in style guide
+$grey-3: #777;
+$grey-4: #333;
+$grey-5: #181818;
+$grey-6: #0d0d0d;
+$grey-7: #ccc;
+
+$red-default: #c00;
+$red-hover: #7a0505;
+$red-active: #470101;
+
+// Breakpoints
+$max-width-lg: 1280px;
+
+// GLOBALS
+$font-size-base: 15px;
+$font-family-base: 'Helvetica', sans-serif;
+@font-face{
+	font-family:'agency';
+	src:url(/themes/custom/eleague/fonts/agency-fb.ttf);
+}
+
+// Headings
+$heading-color: $primary;
+$heading-font-family: $font-family-base;
+$heading-font-weight: normal;
+$heading-1-desktop: em(34px, $font-size-base);
+$heading-2-desktop: em(30px, $font-size-base);
+$heading-3-desktop: em(24px, $font-size-base);
+$heading-4-desktop: em(18px, $font-size-base);
+
+$heading-1-mobile: em(30px, $font-size-base);
+$heading-2-mobile: em(26px, $font-size-base);
+$heading-3-mobile: em(24px, $font-size-base);
+$heading-4-mobile: em(22px, $font-size-base);
+
+$paragraph-font-family: $heading-font-family;
+
+// Site Wrapper
+$site-wrapper-bg-color: $primary;
+$site-wrapper-color: $secondary;
+$site-wrapper-font-family: $font-family-base;
+$site-wrapper-font-size: $font-size-base;
+$site-wrapper-line-height: 22px;
+
+// Site Inner Wrapper
+$site-inner-wrapper-max-width: $max-width-lg;
+
+// Page Title Wrapper
+$page-title-wrapper-bg-color: $primary;
+$page-title-wrapper-padding: 20px;
+
+// Headline
+
+
+// Subtext
+$site-wrapper-subtext-color: $grey-3;
+
+// Social Icons
+//$social-icons-container-margin: 20px 0 80px; // used in ad page - no template yet
+$social-icons-icon-width: 48px;
+$social-icons-icon-margin: 15px;
+
+$social-icons-margin-big: 0 5px;
+$social-icons-width-big: 60px;
+
+// Sign Up
+$sign-up-container-padding: 80px 8%;
+$sign-up-max-width: 960px;
+$sign-up-link-btn-color: $secondary;
+$sign-up-link-btn-bg-color: $grey-4;
+$sign-up-link-btn-border-color: $secondary;
+$sign-up-link-btn-color-hover: $primary;
+$sign-up-link-btn-bg-color-hover: $secondary;
+
+// Homepage - In Season
+$in-season-container-bg-color: $grey-1;
+$in-season-container-color: $primary;
+$in-season-container-padding: 20px 20px;
+$in-season-container-border-color: $grey-2;
+$in-season-block-title-border-color: $grey-3;
+$in-season-heading-color: $in-season-container-color;
+$in-season-heading-font-size: em(34);
+$in-season-heading-line-height: 36px;
+$in-season-card-bg-color: $secondary;
+// Default Card Heading Style
+$in-season-card-heading-font-size: em(30);
+$in-season-card-heading-line-height: 38px;
+$in-season-card-heading-color: $in-season-container-color;
+// Left Card
+$in-season-left-card-height-desktop: 1058px;
+$in-season-left-card-heading-padding: 30px;
+$in-season-left-card-paragraph-color: $in-season-container-color;
+$in-season-left-card-paragraph-font-size: em(18);
+$in-season-left-card-paragraph-line-height: 32px;
+$in-season-left-card-paragraph-padding: 28px 30px 108px 30px;
+$in-season-left-card-info-font-size: em(13);
+$in-season-left-card-info-line-height: 33px;
+// Right Card
+$in-season-right-card-heading-default-font-size: em(30);
+$in-season-right-card-heading-default-line-height: 38px;
+$in-season-right-card-heading-font-size: em(24);
+$in-season-right-card-heading-line-height: 30px;
+$in-season-right-card-summary-font-size: em(14);
+$in-season-right-card-summary-line-height: 20px;
+$in-season-right-card-info-link-font-size: em(12);
+// Right Card - Radar
+$in-season-right-card-radar-title-border-color: $grey-2;
+$in-season-right-card-radar-title-font-size: em(22);
+$in-season-right-card-radar-title-line-height: 30px;
+$in-season-right-card-radar-title-padding: 20px 20px 10px;
+
+// Clipboard
+$clipboard-container-bg-color: $in-season-container-bg-color;
+$clipboard-container-color: $in-season-container-color;
+$clipboard-container-padding: $in-season-container-padding;
+$clipboard-container-border-color: $in-season-container-border-color;
+$clipboard-block-title-border-color: $in-season-block-title-border-color;
+$clipboard-heading-color: $in-season-heading-color;
+$clipboard-heading-font-size: $in-season-heading-font-size;
+$clipboard-heading-line-height: $in-season-heading-line-height;
+$clipboard-frame-border-color: $grey-1;
+
+// Two Btn Header
+$btn-container-summary-color: $grey-2;
+$btn-container-banner-btn-bg-color: $grey-4;
+
+// Views - Articles
+$article-view-container-bg-color: $in-season-container-bg-color;
+$article-view-container-border-color: $in-season-container-border-color;
+$article-view-container-color: $in-season-container-color;
+$article-view-block-title-border-color: $in-season-block-title-border-color;
+$article-view-heading-color: $in-season-heading-color;
+$article-view-heading-font-size: $in-season-heading-font-size;
+$article-view-heading-line-height: 40px;
+$article-view-card-bg-color: $in-season-card-bg-color;
+$article-view-card-title-font-size: $in-season-right-card-heading-font-size;
+$article-view-card-body-font-size: $in-season-right-card-summary-font-size;
+$article-view-card-footer-font-size: $article-view-card-body-font-size;
+
+// Node - Article
+$node-article-content-body-bg-color: $secondary;
+$node-article-content-body-color: $primary;
+$node-article-content-date-color: $node-article-content-body-color;
+$node-article-content-date-font-size: em(12);
+$node-article-footer-border-color: $grey-2;
+
+// Views - Team Players
+$team-player-border-bottom-color: $grey-4;
+$team-player-heading-3-color: $grey-1;
+$team-player-heading-4-color: $grey-3;
+
+// Photo Gallery Slider
+$gallery-container-bg-color: $in-season-container-bg-color;
+$gallery-title-color: $secondary;
+$gallery-title-font-size: 24px;
+$gallery-title-line-height: 28px;
+$gallery-title-margin: 0 0 10px 0;
+$gallery-location-color: $grey-3;
+$gallery-location-font-size: 16px;
+$gallery-location-line-height: 18px;

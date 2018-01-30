@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.field_collection_item.field_emps_teams.field_elmp_team
+    - field.field.field_collection_item.field_emps_teams.field_score
+    - field_collection.field_collection.field_emps_teams
+id: field_collection_item.field_emps_teams.default
+targetEntityType: field_collection_item
+bundle: field_emps_teams
+mode: default
+content:
+  field_elmp_team:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_score:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+hidden: {  }

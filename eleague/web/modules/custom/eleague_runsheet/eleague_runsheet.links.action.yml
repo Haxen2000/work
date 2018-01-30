@@ -1,0 +1,11 @@
+entity.eleague_runsheet.add_form:
+  route_name: entity.eleague_runsheet.add_page
+  title: 'Add ELEAGUE runsheet'
+  appears_on:
+    - entity.eleague_runsheet.collection
+entity.eleague_runsheet_type.add_form:
+  route_name: entity.eleague_runsheet_type.add_form
+  title: 'Add ELEAGUE runsheet type'
+  appears_on:
+    - entity.eleague_runsheet_type.collection
+

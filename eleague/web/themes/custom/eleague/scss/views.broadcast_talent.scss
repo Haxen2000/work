@@ -1,0 +1,59 @@
+.site-wrapper .site-inner-wrapper h2.broadcast-title {
+  border-bottom: 1px solid $grey-2;
+  padding: 11px 0;
+  margin: 36px;
+  color: $grey-2;
+  font-size: 26px;
+}
+
+.slick--view--broadcast-talent {
+
+  .fullname {
+    padding-top: 5px;
+    text-align: center;
+  }
+
+  .headshot img {
+    width: 135px;
+    border-radius: 50%;
+    border: 2px solid $grey-3;
+    margin: 0 auto;
+  }
+
+  .social-icons.broadcast-icons {
+    float: none !important;
+    width: 100%;
+    text-align: center;
+
+    a {
+      margin: 5px;
+    }
+
+    img {
+      width: 28px;
+    }
+  }
+
+  .slick__arrow {
+    .slick-prev.slick-arrow, .slick-next.slick-arrow{
+      color: $grey-3;
+       &:hover {
+         color: $secondary;
+       }
+    }
+    .slick-prev.slick-arrow {
+      left: 0;
+    }
+    .slick-next.slick-arrow {
+       right: 0;
+    }
+  }
+
+
+  .title {
+    font-size: em(12);
+    color: $grey-3;
+    text-align: center;
+
+  }
+}

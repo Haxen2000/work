@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Contains eleague_runsheet.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function eleague_runsheet_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the eleague_runsheet module.
+    case 'help.page.eleague_runsheet':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module to extend eleague runsheet') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function eleague_runsheet_theme() {
+  $theme = [];
+  $theme['eleague_runsheet'] = [
+    'render element' => 'elements',
+    'file' => 'eleague_runsheet.page.inc',
+    'template' => 'eleague_runsheet',
+  ];
+  $theme['eleague_runsheet_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'eleague_runsheet.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+* Implements hook_theme_suggestions_HOOK().
+*/
+function eleague_runsheet_theme_suggestions_eleague_runsheet(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#eleague_runsheet'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'eleague_runsheet__' . $sanitized_view_mode;
+  $suggestions[] = 'eleague_runsheet__' . $entity->bundle();
+  $suggestions[] = 'eleague_runsheet__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'eleague_runsheet__' . $entity->id();
+  $suggestions[] = 'eleague_runsheet__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}

@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * The settings.build.php generated for each Drupal env.
+ *
+ * This file is generated based on the environment that it is associated with.
+ * It gets its variables from env variables set by Argo or Harbor.
+ */
+
+$settings['hash_salt'] = '';
+
+$settings['update_free_access'] = FALSE;
+
+$settings['container_yamls'][] = __DIR__ . '/services.yml';
+
+$databases['default']['default'] = array(
+  'database' => '<%= ENV.fetch("DB_NAME") %>',
+  'username' => '<%= ENV.fetch("DB_USER") %>',
+  'password' => '<%= ENV.fetch("DB_PASS") %>',
+  'prefix' => '',
+  'host' => '<%=  ENV.fetch("DB_URI").sub(/:.*/,"") %>',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+
+);
+
+$settings['hash_salt'] = "<%= ENV.fetch('HASH_SALT', '8ucAlrKQZ_S1cHyMGUsDUK3t3ExDPlEEIa4FDENEhD8jfe4XnHlFhcSLDZRDVGrYtkOPz4wWww') %>";
+$settings['install_profile'] = 'standard';
+
+<%- if ENV.fetch("MEMCACHE_URI", "") != '' then -%>
+$settings['memcache_storage']['memcached_servers'] = ['<%= ENV.fetch("MEMCACHE_URI", "localhost:11211") %>' => 'default'];
+$settings['memcache_storage']['persistent_connection'] = TRUE;
+$settings['cache']['default'] = 'cache.backend.memcache_storage';
+$settings['cache']['bins']['bootstrap'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['discovery'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['config'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['render'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['container'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['data'] = 'cache.backend.chainedfast';
+$settings['cache']['bins']['toolbar'] = 'cache.backend.memcache_storage';
+$settings['cache']['bins']['menu'] = 'cache.backend.memcache_storage';
+$settings['cache']['bins']['entity'] = 'cache.backend.memcache_storage';
+$settings['cache']['bins']['default'] = 'cache.backend.memcache_storage';
+<% end %>
+
+$settings['flysystem']['s3'] = [
+  'driver' => 's3',
+  'config' => [
+  'key'    => '<%= ENV.fetch("AWS_KEY", "") %>',
+  'secret' => '<%= ENV.fetch("AWS_SECRET", "") %>',
+  'region' => 'us-east-1',
+  'bucket' => '<%= ENV.fetch("AWS_BUCKET", "") %>',
+  'serve_css' => TRUE,
+  'serve_js' => TRUE,
+] ];
+
+$settings['flysystem']['zeus-s3']['config'] = [
+  'key'    => '<%= ENV.fetch("AWS_KEY", "") %>',
+  'secret' => '<%= ENV.fetch("AWS_SECRET", "") %>',
+  'region' => '<%= ENV.fetch("AWS_REGION", "us-east-1") %>',
+  'bucket' => '<%= ENV.fetch("AWS_BUCKET", "") %>',
+];
+

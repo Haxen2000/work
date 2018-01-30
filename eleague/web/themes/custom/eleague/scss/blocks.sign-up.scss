@@ -1,0 +1,65 @@
+.block-sign-up-block {
+  margin: 0 auto;
+  max-width: $sign-up-max-width;
+  padding: 30px 8% 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 80px 8% 0;
+  }
+
+  p {
+    font-size: 1em;
+    margin: em(40) em(16);
+  }
+
+  h2 {
+    &.sign-up-title {
+      letter-spacing: em(1.4);
+      line-height: 1em;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+  }
+
+  a {
+    &.sign-up-link-btn {
+      background: $sign-up-link-btn-bg-color;
+      border: 3px solid $sign-up-link-btn-border-color;
+      color: $sign-up-link-btn-color;
+      display: inline-block;
+      font-weight: lighter;
+      letter-spacing: .08em;
+      padding: 1em 5em;
+      text-decoration: none;
+      transition: background-color 500ms, color 500ms;
+
+      &:hover {
+        background: $sign-up-link-btn-bg-color-hover;
+        color: $sign-up-link-btn-color-hover;
+      }
+    }
+  }
+
+  .sign-up-privacy,
+  .sign-up-verbage {
+    font-size: em(10.7);
+    line-height: em(20.8);
+  }
+
+  .sign-up-privacy {
+    margin-bottom: 0;
+  }
+
+  .sign-up-verbage {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .sign-up-turner-logo {
+    padding: 34px 0;
+
+    img {
+      max-width: 100px;
+    }
+  }
+}

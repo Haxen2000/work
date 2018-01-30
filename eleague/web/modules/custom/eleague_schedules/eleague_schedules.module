@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains eleague_schedules.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function eleague_schedules_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the eleague_schedules module.
+    case 'help.page.eleague_schedules':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom content for ELEAGUE schedules') . '</p>';
+      return $output;
+
+    default:
+  }
+}

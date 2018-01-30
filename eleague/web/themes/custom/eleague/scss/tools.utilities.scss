@@ -1,0 +1,79 @@
+//
+// Utilities
+//------------------------------------
+// Helpful utility classes and shortcuts.
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.clear {
+  clear: both;
+  display: block !important;
+}
+
+.relative {
+  position: relative;
+}
+
+.center {
+  text-align: center;
+}
+
+.caps {
+  text-transform: uppercase;
+}
+
+//Clearfix
+.clearfix {
+  zoom: 1; // ie 6/7
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+//
+// Visibility
+//--------------------------------------------
+.hide,
+.hidden {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  left: -10000em;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.inline {
+  display: inline;
+}

@@ -1,0 +1,442 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    content.field_emps_json_id == '800' ? 'csgo' : ''
+  ]
+%}
+{{ attach_library('eleague/schedule-page') }}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  <span class='start-date hide'>{{ content.field_emps_start_date|date("m/d/Y") }}</span>
+  <div class="schedule">
+    <span class='tournid hide'>{{ content.field_emps_json_id }}</span>
+    <div class='btn-group'>
+      <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+        <span class="text"></span>
+        <span class="caret"></span>
+      </button>
+      <ul class='tabs dropdown-menu' role='menu'>
+        {% for week in content.field_emps_weeks %}
+          {% if week.field_emps_weeks_label %}
+            <span class='schedule-week-title'>{{week.field_emps_weeks_label}} - </span>
+          {% endif %}
+          <li class='tab-link' data-tab='tab-{{ loop.index }}'>
+            {{ week.field_emps_weeks_stage|default('TBD') }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% if content.field_emps_json_id == 'rl' %}
+      <a href='https://battlefy.com/?utm_source=poweredby&utm_campaign=eleague' target='_blank'>
+        <img src='http://s3.amazonaws.com/eleague-prod/gallery/PoweredByBFY_White.png' alt='Powered by Battlefy' class='battlefy' />
+      </a>
+    {% endif %}
+    {% for week in content.field_emps_weeks %}
+      <div class="schedule-week week-{{ loop.index }}">
+        {% for day in week.field_emps_days %}
+          <div class="schedule-day" data-date='{{ day.field_emps_days_start|date("Ymd") }}'>
+            <span class='start_time hide'>{{ day.field_emps_days_start|date("m/d/Y h:i")|default('TBD') }}</span>
+            <span class='start-date'>{{ day.field_emps_days_start|date("l M jS")|default('TBD') }}</span>
+            <div class="break-line"></div>
+            <p>Start time {{ day.field_emps_days_start|date("ga")|default('TBD') }} ET</p>
+            <span class='day-label'>{{ day.field_emps_day_label‎ }}</span>
+            {% for match in day.field_emps_match %}
+              <div class='head-to-head {{ match.field_emps_match_state }}{% if match.tbs %} tbs{% endif %}{% if match.game_command %} gc{% endif %}{% if match.field_emps_teams[0].field_emps_team_title == '' and match.field_emps_teams[1].field_emps_team_title == '' %} tbd{% endif %}{% if match.field_emps_match_best_of == 3 %} bo3{% else %} bo1{% endif %}' data-match-id='{{ match.field_match_id }}'>
+                <div class='team_logo'>
+                  <img class="left_logo" src="{{ match.field_emps_teams[0].field_emps_team_logo|default('http://s3.amazonaws.com/eleague-prod/gallery/blank.png') }}" alt="{{ match.field_emps_teams[0].field_emps_team_title|default('TBD') }}">
+                </div>
+                <div class='team_vs_team'>
+                  <div class="brand_block">
+                    <div class="tbs_block">
+                      <img class="tbs_logo" src="http://cdn.eleague.com/global/images/tbs.png">
+                    </div>
+                  </div>
+                  <div class='match_holder'>
+                    <div class='match-finished-banner {% if match.field_emps_match_state != "final" %}hide{% endif %}'>
+                      <span>FINAL</span>
+                    </div>
+                    <div class='match-live-banner {% if match.field_emps_match_state != "live" %}hide{% endif %}'>
+                      <span>LIVE</span>
+                    </div>
+                    <div class='match'>
+                      <div class="score-holder">
+                        <div class="match-team-name team_name_left">{{ match.field_emps_teams[0].field_emps_team_title|default('TBD') }}</div>
+                        <div class="live-score team_score_left{% if match.field_emps_teams[0].field_emps_team_score < match.field_emps_teams[1].field_emps_team_score %} loser{% endif %}" data-jsonid='{{ match.field_emps_team[0].field_team_json_id }}'>{{ match.field_emps_teams[0].field_emps_team_score|default('--') }}</div>
+                        <!--img src="//cdn.eleague.com/img/csgo/t.png">
+                        <img src="//cdn.eleague.com/img/csgo/ct.png"-->
+                      </div>
+                      <div class="vs-holder">
+                        <h5>VS</h5>
+                      </div>
+                      <div class="score-holder">
+                        <div class="live-score team_score_right{% if match.field_emps_teams[0].field_emps_team_score > match.field_emps_teams[1].field_emps_team_score %} loser{% endif %}" data-jsonid='{{ match.field_emps_team[1].field_team_json_id }}'>{{ match.field_emps_teams[1].field_emps_team_score|default('--') }}</div>
+                        <div class="match-team-name team_name_right">{{ match.field_emps_teams[1].field_emps_team_title|default('TBD') }}</div>
+                        <!--img src="//cdn.eleague.com/img/csgo/t.png">
+                        <img src="//cdn.eleague.com/img/csgo/ct.png"-->
+                      </div>
+                    </div>
+                    {% if match.field_emps_teams[0].field_team_players|length > 0 and match.field_emps_teams[1].field_team_players|length > 0 %}
+                      <div class="matchup-tabs hide">
+                        <div class="tab tab-lineups{% if match.field_emps_match_state == "final" %} hide{% endif %}">
+                          <div>Team Lineup</div>
+                        </div>
+                        <div class="tab tab-final-score{% if match.field_emps_match_state != "final" %} hide{% endif %}">
+                          <div>Player Stats</div>
+                        </div>
+                        <div class="tab tab-live-stats{% if match.field_emps_match_state == "pre" %} hide{% endif %}">
+                          <div>Match Stats</div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class='match-title'>
+                    <span>{{ match.field_match_title }}</span>
+                    <span class='map'><span class='map-name'></span> - Map <span class='map-num'></span> of <span class='map-total'></span></span>
+                  </div>
+                </div>
+                <div class='team_logo'>
+                  <img class="right_logo" src="{{ match.field_emps_teams[1].field_emps_team_logo|default('http://s3.amazonaws.com/eleague-prod/gallery/blank.png') }}" alt="{{ match.field_emps_teams[1].field_emps_team_title|default('TBD') }}">
+                </div>
+              </div>
+              {% if match.field_emps_match_best_of == 3 %}
+                <div class='bo3'>
+                  {% if match.field_maps|length > 0 %}
+                    {% for map in match.field_maps %}
+                      <div class='game'>
+                        <div class='map-label'>Map {{ loop.index }}</div>
+                        <div class='score-wrapper'>
+                          <span class='left'>
+                            {% if map.field_map_names != 'TBD' %}
+                              <img src="{{ map.field_emps_teams[0].field_emps_team_logo }}" alt="{{ map.field_emps_teams[0].field_emps_team_title|default('TBD') }}">
+                            {% endif %}
+                            <span class="score {% if map.field_emps_teams[0].field_emps_team_score < map.field_emps_teams[1].field_emps_team_score %}loser{% endif %}">{{ map.field_emps_teams[0].field_emps_team_score|default('') }}</span>
+                          </span>
+                          <span class="map-name">{{ map.field_map_names }}</span>
+                          <span class='right'>
+                            {% if map.field_map_names != 'TBD' %}
+                              <img src="{{ map.field_emps_teams[1].field_emps_team_logo }}" alt="{{ map.field_emps_teams[1].field_emps_team_title|default('TBD') }}">
+                            {% endif %}
+                            <span class="score {% if map.field_emps_teams[0].field_emps_team_score > map.field_emps_teams[1].field_emps_team_score %}loser{% endif %}">{{ map.field_emps_teams[1].field_emps_team_score|default('') }}</span>
+                          </span>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    <div class='game'>
+                      <div class='map-label'>Map 1</div>
+                      <div class='score-wrapper'>
+                        <span class='left'>
+                          {% if match.field_emps_teams[0] %}
+                            <img src='{{ match.field_emps_teams[0].field_emps_team_logo }}' alt='{{ match.field_emps_teams[0].field_emps_team_title|default('TBD') }}'>
+                            <span class='score'>-</span>
+                          {% endif %}
+                        </span>
+                        <span class='map-name'>TBD</span>
+                        <span class='right'>
+                          {% if match.field_emps_teams[1] %}
+                            <img src='{{ match.field_emps_teams[1].field_emps_team_logo }}' alt='{{ match.field_emps_teams[1].field_emps_team_title|default('TBD') }}'>
+                            <span class='score'>-</span>
+                          {% endif %}
+                        </span>
+                      </div>
+                    </div>
+                    <div class='game'>
+                      <div class='map-label'>Map 2</div>
+                      <div class='score-wrapper'>
+                        <span class='left'>
+                          {% if match.field_emps_teams[0] %}
+                            <img src='{{ match.field_emps_teams[0].field_emps_team_logo }}' alt='{{ match.field_emps_teams[0].field_emps_team_title|default('TBD') }}'>
+                            <span class='score'>-</span>
+                          {% endif %}
+                        </span>
+                        <span class='map-name'>TBD</span>
+                        <span class='right'>
+                          {% if match.field_emps_teams[1] %}
+                            <img src='{{ match.field_emps_teams[1].field_emps_team_logo }}' alt='{{ match.field_emps_teams[1].field_emps_team_title|default('TBD') }}'>
+                            <span class='score'>-</span>
+                          {% endif %}
+                        </span>
+                      </div>
+                    </div>
+                    <div class='game'>
+                      <div class='map-label'>Map 3</div>
+                      <div class='score-wrapper'>
+                        <span class='left'>
+                          {% if match.field_emps_teams[0] %}
+                            <img src='{{ match.field_emps_teams[0].field_emps_team_logo }}' alt='{{ match.field_emps_teams[0].field_emps_team_title|default('TBD') }}'>
+                            <span class='score'>-</span>
+                          {% endif %}
+                        </span>
+                        <span class='map-name'>TBD</span>
+                        <span class='right'>
+                          {% if match.field_emps_teams[1] %}
+                            <img src='{{ match.field_emps_teams[1].field_emps_team_logo }}' alt='{{ match.field_emps_teams[1].field_emps_team_title|default('TBD') }}'>
+                            <span class='score'>-</span>
+                          {% endif %}
+                        </span>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div class="drawer v2">
+                <div class="lineups hide">
+                  {% for team in match.field_emps_teams %}
+                    <div class="lineup {% if loop.index == 1 %}left{% elseif loop.index == 2 %}right{% endif %}">
+                      {% for player in team.field_team_players %}
+                        <div class="lineup-player" data-elid='{{player.field_data_el_id}}'>
+                          <img class="player" width="100" height="100" alt='{{player.field_gamertag}}' src='{{player.field_headshot}}'>
+                          <div class="player-gamertag">{{player.field_gamertag}}</div>
+                          <div class="player-name-country">
+                            <img class="flag" width="16" height="12" alt='{{player.field_country}}' src='https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.2.0/flags/4x3/{{player.field_country|lower}}.svg'>
+                            <span class="player-name">{{player.field_full_name}}</span>
+                          </div>
+                          <table class="player-stats">
+                            <tr>
+                              <th>KDR</th>
+                              <th>K</th>
+                              <th>A</th>
+                              <th>D</th>
+                            </tr>
+                            <tr>
+                              <td class="stat-kdr">{KDR}</td>
+                              <td class="stat-k">{K}</td>
+                              <td class="stat-a">{A}</td>
+                              <td class="stat-d">{D}</td>
+                            </tr>
+                          </table>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class="lineup-stats hide">
+                  <div class="row kdr">
+                    <div class="left">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                    <div class="center">KDR</div>
+                    <div class="right">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row kills">
+                    <div class="left">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                    <div class="center">KILLS</div>
+                    <div class="right">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row deaths">
+                    <div class="left">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                    <div class="center">DEATHS</div>
+                    <div class="right">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="match-stats hide">
+                  {% for maps in 1..match.field_emps_match_best_of %}
+                    <div class="table-wrapper">
+                      <div class="map">MAP {{maps}}</div>
+                      {% for team in match.field_emps_teams %}
+                        <table class="lineup {% if loop.index == 1 %}left{% elseif loop.index == 2 %}right{% endif %}">
+                          <tr>
+                            <th>{{team.field_emps_team_title}}</th>
+                            <th>K-D</th>
+                            <th>+/-</th>
+                            <th>KDR</th>
+                            <th>ADR</th>
+                            <th>BP</th>
+                            <th>BD</th>
+                          </tr>
+                          {% for player in team.field_team_players %}
+                            <tr class='lineup-player' data-elid='{{player.field_data_el_id}}'>
+                              <td class="player-name name">{{player.field_full_name}}</td>
+                              <td class='player-gamertag hide'>{{player.field_gamertag}}</td>
+                              <td class="k-d">{##-##}</td>
+                              <td class="dif">{+##}</td>
+                              <td class="kdr">{kdr}</td>
+                              <td class="adpr">{adpr}</td>
+                              <td class="bp">{bp}</td>
+                              <td class="bd">{bd}</td>
+                           </tr>
+                          {% endfor %}
+                        </table>
+                        {% if loop.index == 1 %}
+                          <div class="ms-divider"></div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class="final-scores hide">
+                  {% for team in match.field_emps_teams %}
+                    <div class="final-score {% if loop.index == 1 %}left{% elseif loop.index == 2 %}right{% endif %}">
+                      {% for player in team.field_team_players %}
+                        <div class="final-score-player" data-elid='{{player.field_data_el_id}}'>
+                          <img class="player" width="100" height="100" alt='{{player.field_gamertag}}' src='{{player.field_headshot}}'>
+                          <div class="player-gamertag">{{player.field_gamertag}}</div>
+                          <div class="player-name-country">
+                            <img class="flag" width="16" height="12">
+                            <span class="player-name">{{player.field_full_name}}</span>
+                          </div>
+                          <div class="stats-container">
+                            <div class="stat">
+                              <div class="key">Kills</div>
+                              <div class="value total-kills"></div>
+                            </div>
+                            <div class="stat">
+                              <div class="key">Headshots</div>
+                              <div class="value total-headshots"></div>
+                            </div>
+                            <div class="stat">
+                              <div class="key">Dmg Per Round</div>
+                              <div class="value dmg-per-rnd"></div>
+                            </div>
+                            <div class="stat">
+                              <div class="key">KD Ratio</div>
+                              <div class="value kd-ratio"></div>
+                            </div>
+                            <div class="stat">
+                              <div class="key">K/D - Diff</div>
+                              <div class="value kd-diff"></div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class="final-score-stats hide">
+                  <div class="row kdr">
+                    <div class="left">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                    <div class="center">KDR</div>
+                    <div class="right">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row kills">
+                    <div class="left">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                    <div class="center">KILLS</div>
+                    <div class="right">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row deaths">
+                    <div class="left">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                    <div class="center">DEATHS</div>
+                    <div class="right">
+                      <div class="stat"></div>
+                      <div class="bar-outer">
+                        <div class="bar-inner"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <div class='live-now-bar flex hide'>
+      <div>
+      WATCH LIVE NOW
+      </div>
+      <div class='link-holders'>
+        <div>
+          <a href='//live.eleague.com' target='_blank'>
+            LIVE.ELEAGUE.COM<img class="play" src="//cdn.eleague.com/img/play333.png">
+          </a>    
+        </div>
+        <div>
+          <a href='//TWITCH.com/eleaguetv' target='_blank'>
+            TWITCH<img class="play" src="//cdn.eleague.com/img/play333.png">
+          </a>    
+        </div>
+        <div>
+          <a href='//www.youtube.com/watch?v=XEuSQ2rMfJs' target='_blank'>
+            YOUTUBE<img class="play" src="//cdn.eleague.com/img/play333.png">
+          </a>    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

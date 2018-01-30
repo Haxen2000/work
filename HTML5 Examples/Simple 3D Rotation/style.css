@@ -1,0 +1,34 @@
+@font-face{
+	font-family: webfont;
+	src: url('webfont.ttf') format('truetype');
+}
+span {
+	font-family:webfont; 
+	font-size:40px;
+	float:right;
+	text-align:center;
+	width:75px;
+	height:75px;
+	background:lightgray;
+	margin:0 0 5px 280px;
+	line-height:87px;
+	border-radius:5px;
+	-webkit-transition:.5s;
+	-moz-transition:.5s;
+	transition:.5s;
+}
+div{
+	width:360px;
+	height:235px;
+	margin:20px auto;
+	position:relative;
+}
+.box {
+	width:280px;
+	height:235px;
+	line-height:250px;
+	font-size:100px;
+	float:left;
+	margin:-240px 0 0;
+	background:darkGoldenRod;
+}

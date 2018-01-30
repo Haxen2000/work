@@ -1,0 +1,7 @@
+draco_top_player.settings:
+  path: '/admin/config/media/top-player'
+  defaults:
+    _form: '\Drupal\draco_top_player\Form\DracoTopPlayerSettingsForm'
+    _title: 'TOP Player Settings'
+  requirements:
+    _permission: 'administer draco top'

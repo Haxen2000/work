@@ -1,0 +1,22 @@
+{#
+/**
+ * @file eleague_runsheet.html.twig
+ * Default theme implementation to present ELEAGUE runsheet data.
+ *
+ * This template is used when viewing ELEAGUE runsheet pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_eleague_runsheet()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('eleague_runsheet') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

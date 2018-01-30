@@ -1,0 +1,8 @@
+name: 'ELEAGUE Video Feature'
+type: module
+core: 8.x
+dependencies:
+  - image
+  - media_entity
+  - views
+version: 8.x-1.0

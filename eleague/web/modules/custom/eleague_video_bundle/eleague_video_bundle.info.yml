@@ -1,0 +1,10 @@
+name: 'ELEAGUE Video Bundle'
+description: 'Custom video bundle for ELEAGUE'
+type: module
+core: 8.x
+dependencies:
+  - draco_zeus
+  - file
+  - media_entity
+  - remote_stream_wrapper
+version: 8.x-1.0

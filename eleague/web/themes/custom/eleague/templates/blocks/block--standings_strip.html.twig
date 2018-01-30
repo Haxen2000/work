@@ -1,0 +1,17 @@
+<div class='standings-strip'>
+	{{ title_prefix }}
+	{% if label %}
+		<span class='title'>{{ label }}</span>
+	{% endif %}
+	{{ title_suffix }}
+	{% for team in content.standings_team %}
+		<div class='team'>
+		    <img src={{ team.logo }} alt='{{ team.team_name }}'>
+		    <div>
+				<span class='team-name'>{{ team.team_name }}</span>
+				<span class='record'>{{ team.record }}</span>
+			</div>
+		</div>
+	{% endfor %}
+	<hr>
+</div>

@@ -1,0 +1,13 @@
+.block-map-block {
+  margin: 17px;
+  padding-top: 30px;
+
+  .heading-2 {
+    color: $secondary;
+
+    &.bg {
+      background: url('/themes/custom/eleague/images/tickets_bg.jpg');
+      line-height: 74px;
+    }
+  }
+}

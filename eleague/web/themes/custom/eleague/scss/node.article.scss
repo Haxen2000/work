@@ -1,0 +1,95 @@
+.node--type-article {
+  .article-title-wrapper {
+    line-height: 1.2em;
+    margin-bottom: 85px;
+
+    .article-image {
+      img {
+        width: 100%;
+      }
+    }
+
+    .article-header {
+      padding: 0 40px;
+
+      .article-title {
+        display: inline-block;
+        max-width: 75%;
+      }
+
+      .article-social {
+        .email {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .article-content-wrapper {
+    .article-content {
+      background-image: url('/themes/custom/eleague/images/background-texture.png');
+      height: auto;
+      margin-bottom: 35px;
+      padding: 0;
+      
+      @media screen and (min-width: 768px) {
+        padding: 0 15%;
+
+         &.format-major {
+          padding: 0 10%;
+          margin-top: 70px;
+        }
+      }
+
+
+      .article-content-body {
+        background-color: $node-article-content-body-bg-color;
+        color: $node-article-content-body-color;
+        margin: 0 auto;
+        padding: 31px 31px 11px;
+        position: relative;
+        top: -60px;
+        width: 90%;
+
+        &.format-major-nopadding {
+          padding: 0px;
+        }
+
+        &.custom-page {
+          top: 0;
+        }
+
+        .article-date {
+          color: $node-article-content-date-color;
+          display: block;
+          font-size: $node-article-content-date-font-size;
+          font-weight: bold;
+          padding: 0 0 10px;
+          text-align: right;
+        }
+
+        strong {
+          font-size: 18pt;
+          line-height: 22pt;
+          font-weight: normal;
+        }
+
+        //.article-body {}
+      }
+    }
+
+    .article-footer {
+      .article-footer-social {
+        border-top: 1px solid $node-article-footer-border-color;
+        display: block;
+        float: none;
+        margin: 40px 0 0 ;
+        text-align: center;
+
+        a {
+          margin: 20px 5px;
+        }
+      }
+    }
+  }
+}

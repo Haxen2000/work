@@ -1,0 +1,328 @@
+.block-csgo-major-2018-tourney-leader {
+
+  .tournament_leader {
+    background-color: $primary;
+
+    &.season2_leader {
+      margin-top: -6px;
+    }
+  }
+  
+
+  .performer-leader {
+    padding: 16px 20px;
+    font-weight: lighter;
+    font-size: em(14);
+    color: $primary;
+    line-height: 22px;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 768px) {
+      padding: 0;
+    }
+
+    .title {
+      display: flex;
+      align-items: flex-end;
+      height: 70px;
+      margin: 0 20px 0 20px;
+      border-bottom: 1px solid $grey-2;
+      padding: 5px;
+      font-size: 26px;
+      color: $secondary;
+    }
+
+  }
+
+  .top-performers {
+    display: inline-flex;
+    flex-direction: column;
+    width: 49%;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
+    .tp-title {
+      flex-grow: 1;
+    }
+
+    .performer-container {
+      margin-top: 20px;
+      padding-left: 15px;
+      border-left: 1px solid $grey-2;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: 500px) and (min-width: 50px) {
+        flex-direction: column;
+      }
+    }
+
+    .performer {
+      position: relative;
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      height: 110px;
+      padding: 25px 30px 15px 8px;
+      border-bottom: 1px solid $grey-2;
+
+      @media screen and (max-width: 500px) and (min-width: 50px) {
+        width: 100%;
+      }
+
+      &:nth-child(8) {
+        border-bottom: none;
+      }
+
+      &:nth-child(9) {
+        border-bottom: none;
+      }
+
+      &:nth-child(odd) {
+        border-left: 1px solid $grey-2;
+
+        @media screen and (max-width: 500px) and (min-width: 50px) {
+          border: none;
+        }
+      }
+
+      .player-image-premier {
+        border: 2px solid $grey-4;
+        background-color: $primary;
+        border-radius: 50%;
+        margin-right: 10px;
+        width: 60px;
+        height: 60px;
+      }
+
+      .player-info {
+        height: 80px;
+        flex-grow: 2;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+
+        .category {
+          flex-grow: 1;
+          font-weight: lighter;
+          font-size: 12px;
+          letter-spacing: -.06em;
+          text-transform: uppercase;
+          color: $grey-2;
+        }
+
+        .gamerTag {
+          color: $secondary;
+          flex-grow: 1;
+          font-size: 18px;
+        }
+
+        .flag-name-container {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
+        }
+
+        .flag {
+          display: block;
+          float: left;
+          width: 21px;
+          height: 14px;
+        }
+
+        .name {
+          display: block;
+          width: 120px;
+          float: left;
+          color: $secondary;
+          font-size: 11px;
+          line-height: 14px;
+          padding-left: 5px;
+        }
+      }
+
+      .score {
+        direction: rtl;
+        display: flex;
+        width: 60px;
+        height: 60px;
+        align-items: center;
+        right: 8px;
+        position: absolute;
+        font-size: 24px;
+        font-weight: bolder;
+        color: $secondary;
+      }
+    }
+  }
+
+  .tourney-leader {
+    display: inline-flex;
+    flex-direction: column;
+    width: 50%;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
+    .tl-author {
+      margin: 0 20px;
+      
+      @media screen and (max-width: 768px) {
+        margin-bottom: 20px;
+      }
+
+      div {
+        display: inline-block;
+        border-left: 1px solid $grey-2;
+        padding-left: 10px;
+      }
+
+       .player-image {
+        border: 2px solid $grey-4;
+        background-color: $primary;
+        border-radius: 50%;
+        margin-right: 10px;
+        width: 60px;
+        height: 60px;
+        vertical-align: bottom;
+        }
+      span {
+        font-size: 12px;
+        color: $grey-2;
+      }
+
+      h2 {
+        color: $secondary;
+        margin: 0;
+        font-size: 26px;
+        line-height: 26px;
+        border-bottom: 1px solid $grey-2;
+        padding: 10px 20px;
+      }
+
+    }
+
+    .tl-write-up {
+      padding: .8em 20px;
+      font-weight: lighter;
+      line-height: 22px;
+      font-size: 14px;
+      color: $secondary;
+    }
+
+    .tl-headshot {
+
+      @media screen and (max-width: 400px) and (min-width: 50px) {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      img {
+        height: 130px;
+        width: 130px;
+        border-radius: 50%;
+        border: 2px solid $grey-4;
+        background-color: $primary;
+      }
+    }
+    .tl-profile-container {
+        margin-top: 20px;
+        color: #fff !important;
+        display: flex;
+        flex-direction: row;
+        height: 130px;
+        position: relative;
+        padding: 0 20px;
+
+        @media screen and (max-width: 400px) and (min-width: 50px) {
+          height: auto;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+      .tl-profile {
+        flex-direction: column;
+        flex-grow: 3;
+        margin-left: 15px;
+        font-size: 16px;
+        line-height: 1.4em;
+        letter-spacing: .03em;
+        font-weight: normal;
+        font-style: normal;
+
+        @media screen and (max-width: 400px) and (min-width: 50px) {
+          margin: 0;
+          padding: 0 5%;
+          text-align: center;
+        }
+
+        .tl-gamertag {
+          flex-grow: 1;
+          font-size: 36px;
+          margin-bottom: 5px;
+        }
+
+        .tl-team {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: row;
+          line-height: 25px;
+
+          @media screen and (max-width: 400px) and (min-width: 50px) {
+            margin-top: 10px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+          }
+
+            .tl-team-icon img {
+              height: 25px;
+              width: 25px;
+            }
+            .tl-team-name {
+              font-size: 21px;
+              padding-left: 10px;
+              font-weight: lighter;
+              letter-spacing: -.07em;
+            }
+          }
+        .tl-stats {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: row;
+          .tl-stats-box {
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+
+              .tl-stats-title {
+                width: 100%;
+                font-weight: lighter;
+                font-size: 14px;
+                text-transform: uppercase;
+                color: $grey-2;
+              }
+              .tl-stats-number {
+                width: 100%;
+                font-size: 30px;
+              }
+            }
+          .tl-stats-box.mid-left {
+            border-left: 2px solid $grey-2;
+            border-right: 2px solid $grey-2;
+          }
+          .tl-stats-box.mid-right {
+            border-right: 2px solid $grey-2;
+          }
+          }
+        }
+      }
+    }
+ }

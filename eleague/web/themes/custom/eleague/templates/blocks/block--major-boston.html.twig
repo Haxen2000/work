@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+
+<div class="major-custom">
+    <div class="copy-container">
+        <h1>ELEAGUE Boston Major</h1>
+        <hr>
+        <div class="subtext">January 26 - 28, 2018</div>
+        <div class="subtext">Agganis Arena, Boston, Massachusetts</div>
+        <div class="subtext"></div>
+      </div>
+    <div class="two_btn_banner clearfix">
+    <div class="block-two-btn-header">
+    <div class="image-container left">
+        <!--video width="800" height="450" poster="http://cdn.eleague.com/homepage/t1_images/Major_Boston_Tickets.jpg" controls>
+            <source src="http://s3.amazonaws.com/eleague-prod/draco_zeus/2018/01/13/pistol-round-bloodbath-1280x720.mp4" type="video/mp4">
+        </video-->
+        <img src="http://s3.amazonaws.com/eleague-prod/gallery/pins_1920x1080z.jpg" alt="">
+    </div>
+    <div class="btn-container right">
+      <div class="top">
+        <h3 class="title">{{ content.two_btn_header_top_title }}</h3>
+        <div class="details">
+            <h2>3-Day Ticket: $120</h2>
+            <span class="grey">+additional fees</span>
+                <p>RFID-enabled Badge</p>
+                    <ul>
+                        <li>Steam account link for drops</li>
+                        <li>In-arena scavenger hunt</li>
+                        <li>Tap to Win prizes</li>
+                    </ul>
+                    <br>
+                <p>'In The Game' interactive experience that puts YOU in the game</p>
+                <p>Attendees will receive a Series 3 pin and a premium gift bag</p>
+                    
+        </div>
+        <span class="red"><a href="http://cdn.eleague.com/img/csgo/major-2018/TheELEAGUEMajor_FanInfoSheet_Boston.pdf" target='_blank'>Event Information / Fan Overview</a></span>
+        <span class="red"><a href="/major-2018/rfid-faq" target='_blank'>RFID Badge FAQ</a></span>
+        <span class="red"><a href="https://registration.intellifest.com/eleague2018#/info" target='_blank'>Register Your Badge</a></span>
+        <!--a class="btn btn-dark-bg btn-red banner-btn" href="https://www1.ticketmaster.com/event/01005351B55240B8?dma_id=220&artistid=2258528&majorcatid=10005&minorcatid=0#efeat4211" target="_blank">GET YOUR TICKETS NOW!</a-->
+      </div>
+      
+  </div>
+  <!-- Activity name for this tag: Major Pins Boston -->
+<script type='text/javascript'>
+var axel = Math.random()+"";
+var a = axel * 10000000000000;
+document.write('<img src="https://pubads.g.doubleclick.net/activity;xsp=4363710;ord=[session id]?" width=1 height=1 border=0/>');
+</script>
+<noscript>
+<img src="https://pubads.g.doubleclick.net/activity;xsp=4363710;ord=[session id]?" width=1 height=1 border=0/>
+</noscript>
+    </div>
+  </div>
+    
+</div>

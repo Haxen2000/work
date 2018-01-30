@@ -1,0 +1,120 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+{{ attach_library('eleague/scoring-strip') }}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div id='landing-match-summary' class='first{% if content.matches|length < 5 %} last{% endif %}'>
+    <div class='json_id hide'>{{ content.json_id }}</div>
+    <div class='gradient-border'></div>
+    <div class='info'>
+      <div class='heading'>
+        <span class='title'>{{ content.game }}</span><br>
+        <span class='stage'>Day <span class='playDay'>{{ content.day_num }}</span> - BO{{ content.best_of }} </span>
+        <span class='date'>{{ content.date|date('D, F d') }}</span>
+        <div class='match-count'>Match 
+          <span class='current'>1</span> of
+          <span class='total'>{{content.matches|length}}</span>
+        </div>
+      </div>
+      <a href='{{ content.link }}'>
+        <span class='chevron'>›</span>Full Schedule
+      </a>
+    </div>
+    <div class='landing-match-summary-slides'>
+      {% for match in content.matches %}
+        {% if loop.index0 % 2 == 0 %}
+          <div class='landing-match-summary-slide'>
+        {% endif %}
+        <div class='landing-match{% if match.teams|length == 0 %} tbd{% endif %}' data-map-index='{{ match.map_index }}' data-match-id='{{ match.match_id }}'>
+          {% for team in match.teams %}
+            <a class='profile'>
+              <div class='team' data-jsonid='{{ team.json_id }}'>
+                <div class='identity'>
+                  <img src='{{ team.logo }}' alt='{{ team.title }}'>
+                  <div class='name'>{{ team.title }}</div>
+                </div>
+                <div class='score'>{{ team.score }}</div>
+              </div>
+            </a>
+            {% if loop.index0 == 0 %}
+              <div class='map {{ match.state }}'>
+                <span class='map-name'>{{ match.map|default("Match " ~ loop.parent.loop.index) }}</span>
+                <span class='final'>Final</span>
+                <span class='live'><b>LIVE</b></span>
+              </div>
+            {% endif %}
+          {% endfor %}
+          {% if match.teams|length == 0 %}
+            <a class='profile'>
+              <div class='team'>
+                <div class='identity'>
+                  <img src='http://s3.amazonaws.com/eleague-prod/gallery/blank.png' alt='TBD'>
+                  <div class='name'>TBD</div>
+                </div>
+                <div class='score'>0</div>
+              </div>
+            </a>
+            <div class='map pre'>
+              <span class='map-name'>Match {{ loop.index }}</span>
+              <span class='final'>Final</span>
+              <span class='live'><b>LIVE</b></span>
+            </div>
+            <a class='profile'>
+              <div class='team'>
+                <div class='identity'>
+                  <img src='http://s3.amazonaws.com/eleague-prod/gallery/blank.png' alt='TBD'>
+                  <div class='name'>TBD</div>
+                </div>
+                <div class='score'>0</div>
+              </div>
+            </a>
+          {% endif %}
+        </div>
+        {% if loop.index0 % 2 == 1 %}
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% if content.matches|length % 2 == 1 %}
+        </div>
+      {% endif %}
+    </div>
+    <div class='arrow arrow-prev'>‹</div>
+    <div class='arrow arrow-next'>›</div>
+  </div>
+</div>

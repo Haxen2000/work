@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains eleague_freewheel.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\eleague_freewheel\Service\BVIPublish;
+
+/**
+ * Implements hook_help().
+ */
+function eleague_freewheel_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the eleague_freewheel module.
+    case 'help.page.eleague_freewheel':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom implementation of Draco FreeWheel') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function eleague_freewheel_media_update(Drupal\Core\Entity\EntityInterface $entity) {
+
+    //publish to freewheel if the media is published
+    if($entity->get('status')->getValue()[0]['value'] == 1) {
+
+        $freewheel_manager = \Drupal::service('eleague.bvipublish');
+        $freewheel_manager->PublishBVIContent($entity->id());
+    }
+
+}
+
+
+

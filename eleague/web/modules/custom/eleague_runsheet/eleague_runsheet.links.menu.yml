@@ -1,0 +1,18 @@
+
+# ELEAGUE runsheet menu items definition
+entity.eleague_runsheet.collection:
+  title: 'ELEAGUE runsheet list'
+  route_name: entity.eleague_runsheet.collection
+  description: 'List ELEAGUE runsheet entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# ELEAGUE runsheet type menu items definition
+entity.eleague_runsheet_type.collection:
+  title: 'ELEAGUE runsheet type'
+  route_name: entity.eleague_runsheet_type.collection
+  description: 'List ELEAGUE runsheet type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

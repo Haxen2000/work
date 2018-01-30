@@ -1,0 +1,33 @@
+add eleague runsheet entities:
+  title: 'Create new ELEAGUE runsheet entities'
+
+administer eleague runsheet entities:
+  title: 'Administer ELEAGUE runsheet entities'
+  description: 'Allow to access the administration form to configure ELEAGUE runsheet entities.'
+  restrict access: true
+
+delete eleague runsheet entities:
+  title: 'Delete ELEAGUE runsheet entities'
+
+edit eleague runsheet entities:
+  title: 'Edit ELEAGUE runsheet entities'
+
+access eleague runsheet overview:
+  title: 'Access the ELEAGUE runsheet overview page'
+
+view published eleague runsheet entities:
+  title: 'View published ELEAGUE runsheet entities'
+
+view unpublished eleague runsheet entities:
+  title: 'View unpublished ELEAGUE runsheet entities'
+
+view all eleague runsheet revisions:
+  title: 'View all ELEAGUE runsheet revisions'
+
+revert all eleague runsheet revisions:
+  title: 'Revert all ELEAGUE runsheet revisions'
+  description: 'Role requires permission <em>view ELEAGUE runsheet revisions</em> and <em>edit rights</em> for eleague runsheet entities in question or <em>administer eleague runsheet entities</em>.'
+
+delete all eleague runsheet revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view ELEAGUE runsheet revisions</em> and <em>delete rights</em> for eleague runsheet entities in question or <em>administer eleague runsheet entities</em>.'

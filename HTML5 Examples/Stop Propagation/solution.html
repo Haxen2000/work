@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Untitled Document</title>
+		<style type="text/css">
+			body {
+				margin:40px;
+				-webkit-user-select:none;
+				-moz-user-select:none;
+				user-select:none;
+			}
+			div {
+				width:310px;
+				background:tan;
+				position:relative;
+				overflow:hidden;
+				font-family:Arial;
+				border:1px solid black; 
+			}
+			div div {
+				width:auto;
+				height:auto;
+				color:white;
+			}
+		</style>
+		<script type="text/javascript"> 
+			window.onload = function ( ) {
+				var chks = document.getElementsByTagName ( 'input' );
+				var n = chks.length;
+				while ( n-- ) set ( chks [ n ] );
+				function set ( chk ) {
+					chk.parentNode.onmousedown = function ( evt ) {
+						ease ( this, { padding:50, margin:-23 }, 750 );
+						if(!chk.checked) {
+							evt = evt || window.event;
+							evt.cancelBubble = true;
+							if ( evt.stopPropagation ) evt.stopPropagation ( );
+						}
+					}
+					chk.onmousedown = function ( evt ) {
+						evt = evt || window.event;
+						evt.cancelBubble = true;
+						if ( evt.stopPropagation ) evt.stopPropagation ( );
+					}
+				}
+				setInterval ( on_interval, 25 );
+				document.body.onmousedown = document.body.onselectstart = function ( ) { 
+					return false;
+				}
+				function on_interval ( ) {
+					var elms = document.getElementsByTagName ( '*' );
+					for ( var n in elms ) {
+						var eaz = elms [ n ].eaz;
+						for ( var i in eaz ) eaz [ i ] ( );
+					}
+				}
+			}
+			function ease ( obj, info, dur ) {
+				for ( var n in info ) set ( n, info [ n ] );
+				function set ( prop, end ) {
+					var sty = obj.style;
+					var init = parseFloat ( sty [ prop ] || 0 );
+					var eaz = obj.eaz = obj.eaz || [ ];
+					var diff = end - init;
+					var time = 0;
+					eaz [ prop ] = function ( ) {
+						var ovr = 1.70158;
+						var step = Math.min ( dur, time += 40 );
+						sty [ prop ] =  ( diff * ( ( step = step / dur - 1 ) * step * ( ( ovr + 1 ) * step + ovr ) + 1 ) + init ) + 'px';
+						if ( dur == time ) delete eaz [ prop ];
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+			<div style="background:tan; padding:30px; margin:-3px;" onmousedown="ease ( this, { padding:50, margin:-23 }, 750 ); return false;" onmouseup="ease ( this, { padding:30, margin:-3 }, 750 );">
+				<div style="background:maroon; padding:30px; margin:-3px;" onmousedown="ease ( this, { padding:50, margin:-23 }, 750 ); return false;" onmouseup="ease ( this, { padding:30, margin:-3 }, 750 );">
+					<input type="checkbox" checked="checked" /> allow bubble<br /><br /><br />
+						<div style="background:navy; padding:30px; margin:-3px;" onmousedown="ease ( this, { padding:50, margin:-23 }, 750 ); return false;" onmouseup="ease ( this, { padding:30, margin:-3 }, 750 );">
+							<input type="checkbox" checked="checked" /> allow bubble<br /><br /><br />
+								<div style="background:darkGreen; padding:30px; margin:-3px;" onmousedown="ease ( this, { padding:50, margin:-23 }, 750 ); return false;" onmouseup="ease ( this, { padding:30, margin:-3 }, 750 );">
+									<input type="checkbox" checked="checked" /> allow bubble
+						</div>
+					</div>
+				</div>
+			</div>
+		</center>
+	</body>
+</html>

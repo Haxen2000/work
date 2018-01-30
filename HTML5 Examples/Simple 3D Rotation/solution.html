@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Untitled Document</title>
+		<link type="text/css" rel="stylesheet" href="style.css" />
+        <style type="text/css">
+			div {
+				-moz-transform: perspective(500px);	
+				-moz-transform-style: preserve-3d;
+				-webkit-perspective:500;
+			}
+			span[id]:hover {
+				background:darkGoldenRod;
+				color:white;
+			}
+			.box{
+				background: -moz-radial-gradient(50% 50%, ellipse closest-side, white 20%, darkGoldenRod 150%);
+				background: -webkit-gradient(radial, 50% 50%, 25, 50% 50%, 200, from(white), to(darkGoldenRod));
+			}
+		</style>
+		<script>
+			window.onload = function ( ) {
+				var spans = document.getElementsByTagName ( 'span' );
+				var angles = { A:50, B:0, C:-50 }
+				var n = 3;
+				while ( n-- ) spans [ n ].onmouseover = function ( ) {
+					spans [ 3 ].style.webkitTransform = 'rotateX(' + angles [ this.id ] + 'deg)';
+					spans[3].style.transform = 'rotateX(' + angles[this.id] + 'deg)';
+					spans[3].style.MozTransform = 'rotateX(' + angles[this.id] + 'deg)';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<span id="A">A</span>
+			<span id="B">B</span>
+			<span id="C">C</span>
+			<span class="box">3D</span>
+		</div>
+	</body>
+</html>

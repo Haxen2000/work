@@ -1,0 +1,5 @@
+name: ELEAGUE Metadata
+type: module
+description: Custom overrides for Eleague Metadata
+core: 8.x
+package: ELEAGUE

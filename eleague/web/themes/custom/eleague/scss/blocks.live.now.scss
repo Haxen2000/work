@@ -1,0 +1,14 @@
+.live-now-wrapper {
+  background-color: #093;
+  text-align: center;
+  height: 22px;
+  text-transform: uppercase;
+
+  a {
+    color: $secondary !important;
+    text-decoration: underline !important;
+    &:hover {
+      color: $secondary;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+global-css:
+  css:
+    theme:
+      '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css': { type: external }
+      '//getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css': { type: external }
+      css/style.css: {}
+  js:
+    '//getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js': { type: external }
+    js/menu-helper.js: {}
+  dependencies:
+    - core/jquery
+
+performer-leaders:
+  version: 1.x
+  js:
+    js/performer-leaders.js: {}
+    js/teams-premier.js: {}
+  dependencies:
+    - core/jquery
+
+performer-leaders-major2018:
+  version: 1.x
+  js:
+    js/performer-leaders.js: {}
+    js/teams-major-boston.js: {}
+  dependencies:
+    - core/jquery
+
+performer-leaders-major2017:
+  version: 1.x
+  js:
+    js/performer-leaders.js: {}
+    js/teams-major.js: {}
+  dependencies:
+    - core/jquery
+
+performer-leaders-major2017qualifier:
+  version: 1.x
+  js:
+    js/performer-leaders.js: {}
+    js/teams-oq.js: {}
+  dependencies:
+    - core/jquery
+
+performer-leaders-season2:
+  version: 1.x
+  js:
+    js/performer-leaders.js: {}
+    js/teams-s2.js: {}
+  dependencies:
+    - core/jquery
+
+performer-leaders-season1:
+  version: 1.x
+  js:
+    js/performer-leaders.js: {}
+    js/teams.js: {}
+  dependencies:
+    - core/jquery
+
+s2-bracket:
+  version: 1.x
+  js:
+    js/s2-bracket.js: {}
+  dependencies:
+    - core/jquery
+
+player-dropdown:
+  version: 1.x
+  js:
+    js/player-dropdown.js: {}
+  dependencies:
+    - core/jquery
+
+player-stats:
+  version: 1.x
+  js:
+    js/player-stats.js: {}
+  dependencies:
+    - core/jquery
+
+schedule-page:
+  version: 1.x
+  js:
+    js/schedule-match-stats-logic.js: {}
+    js/schedule-logic.js: {}
+
+scoring-strip:
+  version: 1.x
+  js:
+    '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js': { type: external }
+    js/scoring-strip.js: {}
+
+standings:
+  version: 1.x
+  js:
+    js/standings.js: {}
+
+youtube-helper:
+  version: 1.x
+  js:
+    js/twobtnheader.js: {}
+
